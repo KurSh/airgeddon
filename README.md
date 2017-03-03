@@ -51,6 +51,7 @@
  - Parameterizable timeouts
  - Known WPS PINs attack (bully and reaver), based on online PIN database with auto-update
  - Integration of the most common PIN generation algorithms
+- WEP All-in-One attack (combining different attacks: Chop-Chop, Caffe Latte, Hirte, Fragmentation, etc.)
 - Compatibility with many Linux distributions (see [Requirements] section)
 - Easy targeting and selection in every section
 - Drag and drop files on console window for entering file paths
@@ -158,7 +159,7 @@ It is essential to run this script as **root**, otherwise `airgeddon` won't work
 - Go to the newly created directory
  - `cd airgeddon`
 - Run it (remove **sudo** if you already have root permissions)
-  - `sudo bash airgeddon.sh`
+ - `sudo bash airgeddon.sh`
 </details>
 
 `airgeddon` should be launched with **bash** `bash /path/to/airgeddon.sh` and not with `sh` or any other kind of shell. <br/>

@@ -2,8 +2,8 @@
 #Title........: airgeddon.sh
 #Description..: This is a multi-use bash script for Linux systems to audit wireless networks.
 #Author.......: v1s1t0r
-#Date.........: 20170226
-#Version......: 6.1
+#Date.........: 20170303
+#Version......: 7.0
 #Usage........: bash airgeddon.sh
 #Bash Version.: 4.2 or later
 
@@ -104,8 +104,8 @@ declare -A possible_alias_names=(
 								)
 
 #General vars
-airgeddon_version="6.1"
-language_strings_expected_version="6.1-1"
+airgeddon_version="7.0"
+language_strings_expected_version="7.0-1"
 standardhandshake_filename="handshake-01.cap"
 tmpdir="/tmp/"
 osversionfile_dir="/etc/"
@@ -134,8 +134,7 @@ timeout_secs_per_pixiedust="30"
 #Repository and contact vars
 github_user="v1s1t0r1sh3r3"
 github_repository="airgeddon"
-#TODO remove after testing. Don't do pull request without restoring this to master!!
-branch="dev"
+branch="master"
 script_filename="airgeddon.sh"
 urlgithub="https://github.com/${github_user}/${github_repository}"
 urlscript_directlink="https://raw.githubusercontent.com/${github_user}/${github_repository}/${branch}/${script_filename}"
