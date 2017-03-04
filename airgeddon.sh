@@ -2,7 +2,7 @@
 #Title........: airgeddon.sh
 #Description..: This is a multi-use bash script for Linux systems to audit wireless networks.
 #Author.......: v1s1t0r
-#Date.........: 20170303
+#Date.........: 20170304
 #Version......: 7.0
 #Usage........: bash airgeddon.sh
 #Bash Version.: 4.2 or later
@@ -2413,6 +2413,7 @@ function main_menu() {
 	language_strings "${language}" 169
 	language_strings "${language}" 252
 	language_strings "${language}" 333
+	language_strings "${language}" 418 "under_construction"
 	print_simple_separator
 	language_strings "${language}" 60
 	language_strings "${language}" 78
@@ -2446,12 +2447,15 @@ function main_menu() {
 			wps_attacks_menu
 		;;
 		9)
-			credits_option
+			under_construction_message
 		;;
 		10)
-			language_menu
+			credits_option
 		;;
 		11)
+			language_menu
+		;;
+		12)
 			exit_script_option
 		;;
 		*)
