@@ -5853,6 +5853,11 @@ function capture_handshake() {
 		return 1
 	fi
 
+	check_monitor_enabled
+	if [ "$?" != "0" ]; then
+		return 1
+	fi
+
 	validate_network_encryption_type "WPA"
 	if [ "$?" != "0" ]; then
 		return 1
