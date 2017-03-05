@@ -3696,6 +3696,14 @@ function language_strings() {
 	arr["RUSSIAN",424]="${pending_of_translation} Выбранная сеть не подходит. Шифрование тип целевой сети должен быть WEP"
 	arr["GREEK",424]="${pending_of_translation} Το επιλεγμένο δίκτυο είναι άκυρο. τύπο κρυπτογράφησης του δικτύου στόχος πρέπει να είναι WEP"
 
+	arr["ENGLISH",425]="You have a valid WEP target network selected. Script can continue..."
+	arr["SPANISH",425]="Tienes una red objetivo WEP válida seleccionada. El script puede continuar..."
+	arr["FRENCH",425]="Choix du réseau cible WEP valide. Le script peut continuer..."
+	arr["CATALAN",425]="Tens una xarxa objectiu WEP vàlida seleccionada. El script pot continuar..."
+	arr["PORTUGUESE",425]="Você tem uma rede WEP válida selecionada. O script pode continuar..."
+	arr["RUSSIAN",425]="У вас есть подходящая целевая сеть WEP. Скрипт может продолжать..."
+	arr["GREEK",425]="Έχετε επιλέξει ένα έγκυρο δίκτυο-στόχος WEP. Το script μπορεί να συνεχίσει..."
+
 	case "${3}" in
 		"yellow")
 			interrupt_checkpoint "${2}" "${3}"
