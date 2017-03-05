@@ -51,7 +51,7 @@
  - Parameterizable timeouts
  - Known WPS PINs attack (bully and reaver), based on online PIN database with auto-update
  - Integration of the most common PIN generation algorithms
-- WEP All-in-One attack (combining different attacks: Chop-Chop, Caffe Latte, Hirte, Fragmentation, etc.)
+- WEP All-in-One attack (combining different techniques: Chop-Chop, Caffe Latte, Hirte, Fragmentation, Fake association, etc.)
 - Compatibility with many Linux distributions (see [Requirements] section)
 - Easy targeting and selection in every section
 - Drag and drop files on console window for entering file paths

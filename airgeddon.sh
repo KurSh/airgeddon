@@ -2,7 +2,7 @@
 #Title........: airgeddon.sh
 #Description..: This is a multi-use bash script for Linux systems to audit wireless networks.
 #Author.......: v1s1t0r
-#Date.........: 20170304
+#Date.........: 20170305
 #Version......: 7.0
 #Usage........: bash airgeddon.sh
 #Bash Version.: 4.2 or later
@@ -237,6 +237,7 @@ declare evil_twin_hints=(254 258 264 269 309 328 400)
 declare evil_twin_dos_hints=(267 268)
 declare beef_hints=(408)
 declare wps_hints=(342 343 344 356 369 390)
+declare wep_hints=(420 421 422)
 
 #Charset vars
 crunch_lowercasecharset="abcdefghijklmnopqrstuvwxyz"
@@ -2211,6 +2212,10 @@ function initialize_menu_and_print_selections() {
 			print_iface_selected
 			print_all_target_vars_wps
 		;;
+		"wep_attacks_menu")
+			print_iface_selected
+			print_all_target_vars
+		;;
 		"beef_pre_menu")
 			print_iface_selected
 			print_all_target_vars_et
@@ -2378,6 +2383,13 @@ function print_hint() {
 			randomhint=$(shuf -i 0-"${hintlength}" -n 1)
 			strtoprint=${hints[wps_hints|${randomhint}]}
 		;;
+		"wep_attacks_menu")
+			store_array hints wep_hints "${wep_hints[@]}"
+			hintlength=${#wep_hints[@]}
+			((hintlength--))
+			randomhint=$(shuf -i 0-"${hintlength}" -n 1)
+			strtoprint=${hints[wep_hints|${randomhint}]}
+		;;
 		"beef_pre_menu")
 			store_array hints beef_hints "${beef_hints[@]}"
 			hintlength=${#beef_hints[@]}
@@ -2413,7 +2425,7 @@ function main_menu() {
 	language_strings "${language}" 169
 	language_strings "${language}" 252
 	language_strings "${language}" 333
-	language_strings "${language}" 418 "under_construction"
+	language_strings "${language}" 418
 	print_simple_separator
 	language_strings "${language}" 60
 	language_strings "${language}" 78
@@ -2447,7 +2459,7 @@ function main_menu() {
 			wps_attacks_menu
 		;;
 		9)
-			under_construction_message
+			wep_attacks_menu
 		;;
 		10)
 			credits_option
@@ -2891,6 +2903,56 @@ function wps_attacks_menu() {
 	esac
 
 	wps_attacks_menu
+}
+
+#WEP attacks menu
+function wep_attacks_menu() {
+
+	debug_print
+
+	clear
+	language_strings "${language}" 419 "title"
+	current_menu="wep_attacks_menu"
+	initialize_menu_and_print_selections
+	echo
+	language_strings "${language}" 47 "green"
+	print_simple_separator
+	language_strings "${language}" 48
+	language_strings "${language}" 55
+	language_strings "${language}" 56
+	language_strings "${language}" 49
+	language_strings "${language}" 50 "separator"
+	language_strings "${language}" 423
+	print_simple_separator
+	language_strings "${language}" 174
+	print_hint ${current_menu}
+
+	read -r wep_option
+	case ${wep_option} in
+		1)
+			select_interface
+		;;
+		2)
+			monitor_option
+		;;
+		3)
+			managed_option
+		;;
+		4)
+			explore_for_targets_option
+		;;
+		5)
+			under_construction_message
+		;;
+		6)
+			return
+		;;
+		*)
+			invalid_menu_option
+		;;
+	esac
+
+	wep_attacks_menu
 }
 
 #Offline decryption attacks menu

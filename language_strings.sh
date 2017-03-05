@@ -2,7 +2,7 @@
 #Title........: language_strings.sh
 #Description..: All the translated strings that airgeddon uses are located here. 
 #Author.......: v1s1t0r
-#Date.........: 20170301
+#Date.........: 20170305
 #Bash Version.: 4.2 or later
 
 #Set language_strings file version
@@ -3647,6 +3647,46 @@ function language_strings() {
 	arr["PORTUGUESE",418]="9.  Menu de ataques WEP"
 	arr["RUSSIAN",418]="9.  Меню атак на WEP"
 	arr["GREEK",418]="9.  Μενού επιθέσεων WEP"
+
+	arr["ENGLISH",419]="WEP attacks menu"
+	arr["SPANISH",419]="Menú de ataques WEP"
+	arr["FRENCH",419]="Menu d'attaques WEP"
+	arr["CATALAN",419]="Menú d'atacs WEP"
+	arr["PORTUGUESE",419]="Menu de ataques WEP"
+	arr["RUSSIAN",419]="Меню атак на WEP"
+	arr["GREEK",419]="Μενού επιθέσεων WEP"
+
+	arr["ENGLISH",420]="The WEP protocol had a bad design and can be broken in a few minutes if we have enough generated traffic"
+	arr["SPANISH",420]="El protocolo WEP tuvo un diseño erróneo y se puede romper en pocos minutos si se genera tráfico suficiente"
+	arr["FRENCH",420]="${pending_of_translation} WEP est la conception erronée et peut se décomposer dans quelques minutes si suffisamment de trafic est généré"
+	arr["CATALAN",420]="${pending_of_translation} El protocol WEP va tenir un disseny erroni i es pot trencar en pocs minuts si es genera trànsit suficient"
+	arr["PORTUGUESE",420]="${pending_of_translation} WEP era projeto errado e pode quebrar em poucos minutos se bastante tráfego é gerado"
+	arr["RUSSIAN",420]="${pending_of_translation} Протокол WEP был плохой дизайн и может быть нарушена в течение нескольких минут, если у нас есть достаточно генерируемый трафик"
+	arr["GREEK",420]="${pending_of_translation} Το πρωτόκολλο WEP είχε ένα κακό σχεδιασμό και μπορεί να σπάσει μέσα σε λίγα λεπτά, αν έχουμε αρκετό δημιουργείται κυκλοφορίας"
+
+	arr["ENGLISH",421]="The WEP \"All-in-One\" attack combines different techniques to generate enough traffic to decrypt the key (Caffe Latte, Hirte, Chop-Chop, Fragmentation, Fake association, etc.)"
+	arr["SPANISH",421]="El ataque WEP \"Todo-en-Uno\" combina diversas técnicas para generar el tráfico suficiente que hace falta para desencriptar la clave (Caffe Latte, Hirte, Chop-Chop, Fragmentación, Falsa asociación, etc.)"
+	arr["FRENCH",421]="${pending_of_translation} L'attaque WEP \"Tout-en-Un\" combine plusieurs techniques pour générer suffisamment de trafic qui est nécessaire pour décrypter la clé (Caffe Latte, Hirte, Chop-Chop, Fragmentation, Fausse association, etc.)"
+	arr["CATALAN",421]="${pending_of_translation} L'atac WEP \"Tot-en-Un\" combina diverses tècniques per generar el trànsit suficient que cal per desxifrar la clau (Caffe Latte, Hirte, Chop-Chop, Fragmentació, Falsa associació, etc.)"
+	arr["PORTUGUESE",421]="${pending_of_translation} O ataque WEP \"Tudo-em-Um\" combina várias técnicas para gerar tráfego suficiente que é necessário para desencriptar a chave (Caffe Latte, Hirte, Chop-Chop, Fragmentação, Falsa associação, etc.)"
+	arr["RUSSIAN",421]="${pending_of_translation} WEP \"Все-в-Одном\" атака сочетает в себе различные методы, чтобы генерировать достаточно трафика, чтобы расшифровать ключ (Caffe Latte, Hirte, Chop-Chop, Дробление, фальшивый ассоциации и т.д.)"
+	arr["GREEK",421]="${pending_of_translation} Το WEP \"Ολα-σε-ένα\" επίθεση συνδυάζει διαφορετικές τεχνικές για να παράγουν αρκετή κίνηση για να αποκρυπτογραφήσει το κλειδί (Caffe Latte, Hirte, Chop-Chop, Θρυμματισμός, ψευδή ένωση, κλπ)"
+
+	arr["ENGLISH",422]="If real clients exist connected to the WEP encryption network, the process will be significantly accelerated. Enough IVs (Initialization Vectors) will be catched earlier"
+	arr["SPANISH",422]="Si existen clientes reales conectados a la red con encriptación WEP, el proceso se acelerará notablemente. Se obtendrán antes suficientes IVs (Vectores de Inicialización)"
+	arr["FRENCH",422]="${pending_of_translation} Si vous êtes connecté au réseau avec chiffrement WEP clients réels, le processus va accélérer de façon spectaculaire. Être obtenu avant IVs (Vecteurs de Initialisation) suffisantes"
+	arr["CATALAN",422]="${pending_of_translation} Si hi ha clients reals connectats a la xarxa amb encriptació WEP, el procés s'accelerarà notablement. S'obtindran abans suficients IVs (Vectors d'Inicialització)"
+	arr["PORTUGUESE",422]="${pending_of_translation} Se você estiver conectado à rede com criptografia WEP clientes reais, o processo vai acelerar drasticamente. Ser obtido antes IVs (Vetores de Inicialização) suficientes"
+	arr["RUSSIAN",422]="${pending_of_translation} Если реальные клиенты существуют подключены к сети шифрования WEP, процесс будет значительно ускорен. Достаточно капельницы IVs (Инициализационные Векторов) будет пойманной ранее"
+	arr["GREEK",422]="${pending_of_translation} Αν υπάρχουν πραγματικές τους πελάτες που συνδέονται με το δίκτυο κρυπτογράφηση WEP, η διαδικασία θα επιταχυνθεί σημαντικά. Φτάνει IVs (Εκκίνηση Φορείς) θα catched νωρίτερα"
+
+	arr["ENGLISH",423]="5.  WEP \"All-in-One\" attack"
+	arr["SPANISH",423]="5.  Ataque WEP \"Todo-en-Uno\""
+	arr["FRENCH",423]="${pending_of_translation} 5.  Attaque WEP \"Tout-en-Un\""
+	arr["CATALAN",423]="${pending_of_translation} 5.  Atac WEP \"Tot-en-Un\""
+	arr["PORTUGUESE",423]="${pending_of_translation} 5.  Ataque WEP \"Tudo-em-Um\""
+	arr["RUSSIAN",423]="${pending_of_translation} 5.  WEP \"Все-в-Одном\" атака"
+	arr["GREEK",423]="${pending_of_translation} 5.  WEP \"Ολα-σε-ένα\" επίθεση"
 
 	case "${3}" in
 		"yellow")
