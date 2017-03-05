@@ -1519,6 +1519,33 @@ function ask_wps_timeout() {
 	esac
 }
 
+#Validate if selected network has the needed type of encryption
+function validate_network_encryption_type() {
+
+	debug_print
+
+	case ${1} in
+		"WPA"|"WPA2")
+			if [[ ${enc} != "WPA" ]] && [[ ${enc} != "WPA2" ]]; then
+				echo
+				language_strings "${language}" 137 "red"
+				language_strings "${language}" 115 "read"
+				return 1
+			fi
+		;;
+		"WEP")
+			if [ ${enc} != "WEP" ]; then
+				echo
+				language_strings "${language}" 424 "red"
+				language_strings "${language}" 115 "read"
+				return 1
+			fi
+		;;
+	esac
+
+	return 0
+}
+
 #Execute wps custom pin bully attack
 function exec_wps_custom_pin_bully_attack() {
 
@@ -5709,10 +5736,8 @@ function capture_handshake_evil_twin() {
 
 	debug_print
 
-	if [[ ${enc} != "WPA" ]] && [[ ${enc} != "WPA2" ]]; then
-		echo
-		language_strings "${language}" 137 "red"
-		language_strings "${language}" 115 "read"
+	validate_network_encryption_type "WPA"
+	if [ "$?" != "0" ]; then
 		return 1
 	fi
 
@@ -5790,10 +5815,8 @@ function capture_handshake() {
 		return 1
 	fi
 
-	if [[ ${enc} != "WPA" ]] && [[ ${enc} != "WPA2" ]]; then
-		echo
-		language_strings "${language}" 137 "red"
-		language_strings "${language}" 115 "read"
+	validate_network_encryption_type "WPA"
+	if [ "$?" != "0" ]; then
 		return 1
 	fi
 

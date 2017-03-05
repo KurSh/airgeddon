@@ -3688,6 +3688,14 @@ function language_strings() {
 	arr["RUSSIAN",423]="${pending_of_translation} 5.  WEP \"Все-в-Одном\" атака"
 	arr["GREEK",423]="${pending_of_translation} 5.  WEP \"Ολα-σε-ένα\" επίθεση"
 
+	arr["ENGLISH",424]="The selected network is invalid. Encryption type of target network must be WEP"
+	arr["SPANISH",424]="La red seleccionada no es válida. El tipo de encriptación de la red objetivo debe ser WEP"
+	arr["FRENCH",424]="${pending_of_translation} Le réseau sélectionné est invalide . le réseau cible doit être en WEP"
+	arr["CATALAN",424]="${pending_of_translation} La xarxa seleccionada no és vàlida. El tipus d'encriptació de la xarxa objectiu ha de ser WEP"
+	arr["PORTUGUESE",424]="${pending_of_translation} A rede selecionada é inválida. O tipo de criptografia da rede deve ser WEP"
+	arr["RUSSIAN",424]="${pending_of_translation} Выбранная сеть не подходит. Шифрование тип целевой сети должен быть WEP"
+	arr["GREEK",424]="${pending_of_translation} Το επιλεγμένο δίκτυο είναι άκυρο. τύπο κρυπτογράφησης του δικτύου στόχος πρέπει να είναι WEP"
+
 	case "${3}" in
 		"yellow")
 			interrupt_checkpoint "${2}" "${3}"
