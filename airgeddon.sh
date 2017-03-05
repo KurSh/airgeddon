@@ -2949,7 +2949,7 @@ function wep_attacks_menu() {
 	language_strings "${language}" 56
 	language_strings "${language}" 49
 	language_strings "${language}" 50 "separator"
-	language_strings "${language}" 423
+	language_strings "${language}" 423 aireplay_attack_dependencies[@]
 	print_simple_separator
 	language_strings "${language}" 174
 	print_hint ${current_menu}
@@ -2969,7 +2969,12 @@ function wep_attacks_menu() {
 			explore_for_targets_option
 		;;
 		5)
-			under_construction_message
+			contains_element "${wep_option}" "${forbidden_options[@]}"
+			if [ "$?" = "0" ]; then
+				forbidden_menu_option
+			else
+				under_construction_message
+			fi
 		;;
 		6)
 			return
