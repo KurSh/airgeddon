@@ -1,3 +1,7 @@
+###7.0
+ - New WEP attacks menu
+ - Added All-in-One WEP attack
+
 ###6.1
  - Network selection menues now colorized
  - Language strings now in a separated file for easy handling and translating

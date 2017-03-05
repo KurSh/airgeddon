@@ -11,7 +11,7 @@ function set_language_strings_version() {
 
 	debug_print
 
-	language_strings_version="6.1-1"
+	language_strings_version="7.0-1"
 }
 
 #Set different language text strings
@@ -776,21 +776,21 @@ function language_strings() {
 	arr["RUSSIAN",59]="11. Вернуться в главное меню"
 	arr["GREEK",59]="11. Επιστροφή στο αρχικό μενού"
 
-	arr["ENGLISH",60]="9.  About & Credits"
-	arr["SPANISH",60]="9.  Acerca de & Créditos"
-	arr["FRENCH",60]="9.  A propos de & Crédits"
-	arr["CATALAN",60]="9.  Sobre & Crédits"
-	arr["PORTUGUESE",60]="9.  Sobre & Créditos"
-	arr["RUSSIAN",60]="9.  О программе и Благодарности"
-	arr["GREEK",60]="9.  Σχετικά με & Εύσημα"
+	arr["ENGLISH",60]="10. About & Credits"
+	arr["SPANISH",60]="10. Acerca de & Créditos"
+	arr["FRENCH",60]="10. A propos de & Crédits"
+	arr["CATALAN",60]="10. Sobre & Crédits"
+	arr["PORTUGUESE",60]="10. Sobre & Créditos"
+	arr["RUSSIAN",60]="10. О программе и Благодарности"
+	arr["GREEK",60]="10. Σχετικά με & Εύσημα"
 
-	arr["ENGLISH",61]="11. Exit script"
-	arr["SPANISH",61]="11. Salir del script"
-	arr["FRENCH",61]="11. Sortir du script"
-	arr["CATALAN",61]="11. Sortir del script"
-	arr["PORTUGUESE",61]="11. Sair do script"
-	arr["RUSSIAN",61]="11. Выйти из скрипта"
-	arr["GREEK",61]="11. Έξοδος script"
+	arr["ENGLISH",61]="12. Exit script"
+	arr["SPANISH",61]="12. Salir del script"
+	arr["FRENCH",61]="12. Sortir du script"
+	arr["CATALAN",61]="12. Sortir del script"
+	arr["PORTUGUESE",61]="12. Sair do script"
+	arr["RUSSIAN",61]="12. Выйти из скрипта"
+	arr["GREEK",61]="12. Έξοδος script"
 
 	arr["ENGLISH",62]="8.  Beacon flood attack"
 	arr["SPANISH",62]="8.  Ataque Beacon flood"
@@ -920,13 +920,13 @@ function language_strings() {
 	arr["RUSSIAN",77]="Был выбран недействительный интерфейс"
 	arr["GREEK",77]="Επιλέχθηκε άκυρη διεπαφή"
 
-	arr["ENGLISH",78]="10. Change language"
-	arr["SPANISH",78]="10. Cambiar idioma"
-	arr["FRENCH",78]="10. Changer de langue"
-	arr["CATALAN",78]="10. Canviar l'idioma"
-	arr["PORTUGUESE",78]="10. Alterar idioma"
-	arr["RUSSIAN",78]="10. Сменить язык"
-	arr["GREEK",78]="10. Αλλαγή γλώσσας"
+	arr["ENGLISH",78]="11. Change language"
+	arr["SPANISH",78]="11. Cambiar idioma"
+	arr["FRENCH",78]="11. Changer de langue"
+	arr["CATALAN",78]="11. Canviar l'idioma"
+	arr["PORTUGUESE",78]="11. Alterar idioma"
+	arr["RUSSIAN",78]="11. Сменить язык"
+	arr["GREEK",78]="11. Αλλαγή γλώσσας"
 
 	arr["ENGLISH",79]="1.  English"
 	arr["SPANISH",79]="1.  Inglés"
@@ -3639,6 +3639,62 @@ function language_strings() {
 	arr["PORTUGUESE",417]="Ocorreu um erro inesperado, retornando ao menu"
 	arr["RUSSIAN",417]="Случилась непредвиденная ошибка, перенаправление в меню"
 	arr["GREEK",417]="Παρουσιάστηκε μη αναμενόμενο σφάλμα, γίνεται ανακατεύθυνση στο μενού"
+
+	arr["ENGLISH",418]="9.  WEP attacks menu"
+	arr["SPANISH",418]="9.  Menú de ataques WEP"
+	arr["FRENCH",418]="9.  Menu d'attaques WEP"
+	arr["CATALAN",418]="9.  Menú d'atacs WEP"
+	arr["PORTUGUESE",418]="9.  Menu de ataques WEP"
+	arr["RUSSIAN",418]="9.  Меню атак на WEP"
+	arr["GREEK",418]="9.  Μενού επιθέσεων WEP"
+
+	arr["ENGLISH",419]="WEP attacks menu"
+	arr["SPANISH",419]="Menú de ataques WEP"
+	arr["FRENCH",419]="Menu d'attaques WEP"
+	arr["CATALAN",419]="Menú d'atacs WEP"
+	arr["PORTUGUESE",419]="Menu de ataques WEP"
+	arr["RUSSIAN",419]="Меню атак на WEP"
+	arr["GREEK",419]="Μενού επιθέσεων WEP"
+
+	arr["ENGLISH",420]="The WEP protocol had a bad design and can be broken in a few minutes if we have enough generated traffic"
+	arr["SPANISH",420]="El protocolo WEP tuvo un diseño erróneo y se puede romper en pocos minutos si se genera tráfico suficiente"
+	arr["FRENCH",420]="${pending_of_translation} WEP est la conception erronée et peut se décomposer dans quelques minutes si suffisamment de trafic est généré"
+	arr["CATALAN",420]="${pending_of_translation} El protocol WEP va tenir un disseny erroni i es pot trencar en pocs minuts si es genera trànsit suficient"
+	arr["PORTUGUESE",420]="${pending_of_translation} WEP era projeto errado e pode quebrar em poucos minutos se bastante tráfego é gerado"
+	arr["RUSSIAN",420]="${pending_of_translation} Протокол WEP был плохой дизайн и может быть нарушена в течение нескольких минут, если у нас есть достаточно генерируемый трафик"
+	arr["GREEK",420]="${pending_of_translation} Το πρωτόκολλο WEP είχε ένα κακό σχεδιασμό και μπορεί να σπάσει μέσα σε λίγα λεπτά, αν έχουμε αρκετό δημιουργείται κυκλοφορίας"
+
+	arr["ENGLISH",421]="The WEP \"All-in-One\" attack combines different techniques to generate enough traffic to decrypt the key (Caffe Latte, Hirte, Chop-Chop, Fragmentation, Fake association, etc.)"
+	arr["SPANISH",421]="El ataque WEP \"Todo-en-Uno\" combina diversas técnicas para generar el tráfico suficiente que hace falta para desencriptar la clave (Caffe Latte, Hirte, Chop-Chop, Fragmentación, Falsa asociación, etc.)"
+	arr["FRENCH",421]="${pending_of_translation} L'attaque WEP \"Tout-en-Un\" combine plusieurs techniques pour générer suffisamment de trafic qui est nécessaire pour décrypter la clé (Caffe Latte, Hirte, Chop-Chop, Fragmentation, Fausse association, etc.)"
+	arr["CATALAN",421]="${pending_of_translation} L'atac WEP \"Tot-en-Un\" combina diverses tècniques per generar el trànsit suficient que cal per desxifrar la clau (Caffe Latte, Hirte, Chop-Chop, Fragmentació, Falsa associació, etc.)"
+	arr["PORTUGUESE",421]="${pending_of_translation} O ataque WEP \"Tudo-em-Um\" combina várias técnicas para gerar tráfego suficiente que é necessário para desencriptar a chave (Caffe Latte, Hirte, Chop-Chop, Fragmentação, Falsa associação, etc.)"
+	arr["RUSSIAN",421]="${pending_of_translation} WEP \"Все-в-Одном\" атака сочетает в себе различные методы, чтобы генерировать достаточно трафика, чтобы расшифровать ключ (Caffe Latte, Hirte, Chop-Chop, Дробление, фальшивый ассоциации и т.д.)"
+	arr["GREEK",421]="${pending_of_translation} Το WEP \"Ολα-σε-ένα\" επίθεση συνδυάζει διαφορετικές τεχνικές για να παράγουν αρκετή κίνηση για να αποκρυπτογραφήσει το κλειδί (Caffe Latte, Hirte, Chop-Chop, Θρυμματισμός, ψευδή ένωση, κλπ)"
+
+	arr["ENGLISH",422]="If real clients exist connected to the WEP encryption network, the process will be significantly accelerated. Enough IVs (Initialization Vectors) will be catched earlier"
+	arr["SPANISH",422]="Si existen clientes reales conectados a la red con encriptación WEP, el proceso se acelerará notablemente. Se obtendrán antes suficientes IVs (Vectores de Inicialización)"
+	arr["FRENCH",422]="${pending_of_translation} Si vous êtes connecté au réseau avec chiffrement WEP clients réels, le processus va accélérer de façon spectaculaire. Être obtenu avant IVs (Vecteurs de Initialisation) suffisantes"
+	arr["CATALAN",422]="${pending_of_translation} Si hi ha clients reals connectats a la xarxa amb encriptació WEP, el procés s'accelerarà notablement. S'obtindran abans suficients IVs (Vectors d'Inicialització)"
+	arr["PORTUGUESE",422]="${pending_of_translation} Se você estiver conectado à rede com criptografia WEP clientes reais, o processo vai acelerar drasticamente. Ser obtido antes IVs (Vetores de Inicialização) suficientes"
+	arr["RUSSIAN",422]="${pending_of_translation} Если реальные клиенты существуют подключены к сети шифрования WEP, процесс будет значительно ускорен. Достаточно капельницы IVs (Инициализационные Векторов) будет пойманной ранее"
+	arr["GREEK",422]="${pending_of_translation} Αν υπάρχουν πραγματικές τους πελάτες που συνδέονται με το δίκτυο κρυπτογράφηση WEP, η διαδικασία θα επιταχυνθεί σημαντικά. Φτάνει IVs (Εκκίνηση Φορείς) θα catched νωρίτερα"
+
+	arr["ENGLISH",423]="5.  WEP \"All-in-One\" attack"
+	arr["SPANISH",423]="5.  Ataque WEP \"Todo-en-Uno\""
+	arr["FRENCH",423]="${pending_of_translation} 5.  Attaque WEP \"Tout-en-Un\""
+	arr["CATALAN",423]="${pending_of_translation} 5.  Atac WEP \"Tot-en-Un\""
+	arr["PORTUGUESE",423]="${pending_of_translation} 5.  Ataque WEP \"Tudo-em-Um\""
+	arr["RUSSIAN",423]="${pending_of_translation} 5.  WEP \"Все-в-Одном\" атака"
+	arr["GREEK",423]="${pending_of_translation} 5.  WEP \"Ολα-σε-ένα\" επίθεση"
+
+	arr["ENGLISH",424]="The selected network is invalid. Encryption type of target network must be WEP"
+	arr["SPANISH",424]="La red seleccionada no es válida. El tipo de encriptación de la red objetivo debe ser WEP"
+	arr["FRENCH",424]="${pending_of_translation} Le réseau sélectionné est invalide . le réseau cible doit être en WEP"
+	arr["CATALAN",424]="${pending_of_translation} La xarxa seleccionada no és vàlida. El tipus d'encriptació de la xarxa objectiu ha de ser WEP"
+	arr["PORTUGUESE",424]="${pending_of_translation} A rede selecionada é inválida. O tipo de criptografia da rede deve ser WEP"
+	arr["RUSSIAN",424]="${pending_of_translation} Выбранная сеть не подходит. Шифрование тип целевой сети должен быть WEP"
+	arr["GREEK",424]="${pending_of_translation} Το επιλεγμένο δίκτυο είναι άκυρο. τύπο κρυπτογράφησης του δικτύου στόχος πρέπει να είναι WEP"
 
 	case "${3}" in
 		"yellow")
