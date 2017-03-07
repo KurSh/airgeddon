@@ -1912,6 +1912,39 @@ function michael_shutdown_option() {
 	exec_michaelshutdown
 }
 
+#Validate WEP All-in-One attack parameters
+function wep_option() {
+
+	debug_print
+
+	if [[ -z ${bssid} ]] || [[ -z ${essid} ]] || [[ -z ${channel} ]] || [[ "${essid}" = "(Hidden Network)" ]]; then
+		echo
+		language_strings "${language}" 125 "yellow"
+		language_strings "${language}" 115 "read"
+		explore_for_targets_option
+	fi
+
+	if [ "$?" != "0" ]; then
+		return 1
+	fi
+
+	check_monitor_enabled
+	if [ "$?" != "0" ]; then
+		return 1
+	fi
+
+	validate_network_encryption_type "WEP"
+	if [ "$?" != "0" ]; then
+		return 1
+	fi
+
+	language_strings "${language}" 425 "yellow"
+	language_strings "${language}" 115 "read"
+
+	#TODO add WEP All-in-One attack execution
+	#exec_wep_allinone_attack
+}
+
 #Validate wps parameters for custom pin, pixie dust, bruteforce and pin database attacks
 function wps_attacks_parameters() {
 
@@ -2973,7 +3006,7 @@ function wep_attacks_menu() {
 			if [ "$?" = "0" ]; then
 				forbidden_menu_option
 			else
-				under_construction_message
+				wep_option
 			fi
 		;;
 		6)
@@ -5816,6 +5849,11 @@ function capture_handshake() {
 		explore_for_targets_option
 	fi
 
+	if [ "$?" != "0" ]; then
+		return 1
+	fi
+
+	check_monitor_enabled
 	if [ "$?" != "0" ]; then
 		return 1
 	fi
