@@ -154,8 +154,8 @@ It is essential to run this script as **root**, otherwise `airgeddon` won't work
 
 <details open>
 	<summary id="gettingStarted"><strong>Getting Started</strong></summary>
-- Clone the repository
- - `git clone https://github.com/v1s1t0r1sh3r3/airgeddon.git`
+- Clone the repository from the preferred branch
+ - `git clone --branch=master https://github.com/v1s1t0r1sh3r3/airgeddon.git`
 - Go to the newly created directory
  - `cd airgeddon`
 - Run it (remove **sudo** if you already have root permissions)
