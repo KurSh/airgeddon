@@ -8058,17 +8058,27 @@ function set_windows_sizes() {
 	g2_stdright_window="${xwindow}x${ywindowone}-0+0"
 
 	g3_topleft_window="${xwindow}x${ywindowthird}+0+0"
-	g3_middleleft_window="${xwindow}x${ywindowthird}+0+${middle_position}"
+	g3_middleleft_window="${xwindow}x${ywindowthird}+0+${second_of_three_position}"
 	g3_bottomleft_window="${xwindow}x${ywindowthird}+0-0"
 	g3_topright_window="${xwindow}x${ywindowhalf}-0+0"
 	g3_bottomright_window="${xwindow}x${ywindowhalf}-0-0"
 
 	g4_topleft_window="${xwindow}x${ywindowthird}+0+0"
-	g4_middleleft_window="${xwindow}x${ywindowthird}+0+${middle_position}"
+	g4_middleleft_window="${xwindow}x${ywindowthird}+0+${second_of_three_position}"
 	g4_bottomleft_window="${xwindow}x${ywindowthird}+0-0"
 	g4_topright_window="${xwindow}x${ywindowthird}-0+0"
-	g4_middleright_window="${xwindow}x${ywindowthird}-0+${middle_position}"
+	g4_middleright_window="${xwindow}x${ywindowthird}-0+${second_of_three_position}"
 	g4_bottomright_window="${xwindow}x${ywindowthird}-0-0"
+
+	g5_left1="${xwindow}x${ywindowseventh}+0+0"
+	g5_left2="${xwindow}x${ywindowseventh}+0+${second_of_seven_position}"
+	g5_left3="${xwindow}x${ywindowseventh}+0+${third_of_seven_position}"
+	g5_left4="${xwindow}x${ywindowseventh}+0+${fourth_of_seven_position}"
+	g5_left5="${xwindow}x${ywindowseventh}+0+${fifth_of_seven_position}"
+	g5_left6="${xwindow}x${ywindowseventh}+0+${sixth_of_seven_position}"
+	g5_left7="${xwindow}x${ywindowseventh}+0+${seventh_of_seven_position}"
+	g5_topright_window="${xwindow}x${ywindowhalf}-0+0"
+	g5_bottomright_window="${xwindow}x${ywindowhalf}-0-0"
 }
 
 #Set sizes for x axis
@@ -8110,6 +8120,7 @@ function set_ysizes() {
 	ywindowone=$((ytotal - ywindow_edge_lines))
 	ywindowhalf=$((ytotal / 2 - ywindow_edge_lines))
 	ywindowthird=$((ytotal / 3 - ywindow_edge_lines))
+	ywindowseventh=$((ytotal / 7 - ywindow_edge_lines))
 }
 
 #Set positions for y axis
@@ -8117,7 +8128,14 @@ function set_ypositions() {
 
 	debug_print
 
-	middle_position=$((resolution_y / 3 + ywindow_edge_pixels))
+	second_of_three_position=$((resolution_y / 3 + ywindow_edge_pixels))
+
+	second_of_seven_position=$((resolution_y / 7 + ywindow_edge_pixels))
+	third_of_seven_position=$((resolution_y / 7 + resolution_y / 7 + ywindow_edge_pixels))
+	fourth_of_seven_position=$((resolution_y / 7 + 2 * (resolution_y / 7) + ywindow_edge_pixels))
+	fifth_of_seven_position=$((resolution_y / 7 + 3 * (resolution_y / 7) + ywindow_edge_pixels))
+	sixth_of_seven_position=$((resolution_y / 7 + 4 * (resolution_y / 7) + ywindow_edge_pixels))
+	seventh_of_seven_position=$((resolution_y / 7 + 5 * (resolution_y / 7) + ywindow_edge_pixels))
 }
 
 #Recalculate windows sizes and positions
