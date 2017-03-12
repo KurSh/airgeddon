@@ -62,6 +62,7 @@ optional_tools_names=(
 						"unbuffer"
 						"bettercap"
 						"beef"
+						"packetforge-ng"
 					)
 
 update_tools=("curl")
@@ -95,6 +96,7 @@ declare -A possible_package_names=(
 									[${optional_tools_names[17]}]="expect / expect-dev" #unbuffer
 									[${optional_tools_names[18]}]="bettercap" #bettercap
 									[${optional_tools_names[19]}]="beef-xss / beef-project" #beef
+									[${optional_tools_names[20]}]="aircrack-ng" #packetforge-ng
 									[${update_tools[0]}]="curl" #curl
 								)
 
@@ -2233,6 +2235,7 @@ function initialize_menu_options_dependencies() {
 	bully_pixie_dust_attack_dependencies=(${optional_tools_names[15]} ${optional_tools_names[16]} ${optional_tools_names[17]})
 	reaver_pixie_dust_attack_dependencies=(${optional_tools_names[14]} ${optional_tools_names[16]})
 	et_sniffing_sslstrip2_dependencies=(${optional_tools_names[5]} ${optional_tools_names[6]} ${optional_tools_names[7]} ${optional_tools_names[18]} ${optional_tools_names[19]})
+	wep_attack_dependencies=(${optional_tools_names[2]} ${optional_tools_names[20]})
 }
 
 #Set possible changes for some commands that can be found in different ways depending of the O.S.
@@ -3030,7 +3033,7 @@ function wep_attacks_menu() {
 	language_strings "${language}" 56
 	language_strings "${language}" 49
 	language_strings "${language}" 50 "separator"
-	language_strings "${language}" 423 aireplay_attack_dependencies[@]
+	language_strings "${language}" 423 wep_attack_dependencies[@]
 	print_simple_separator
 	language_strings "${language}" 174
 	print_hint ${current_menu}
@@ -8535,6 +8538,7 @@ function remove_warnings() {
 	echo "${reaver_attacks_dependencies[@]}" > /dev/null 2>&1
 	echo "${bully_pixie_dust_attack_dependencies[@]}" > /dev/null 2>&1
 	echo "${reaver_pixie_dust_attack_dependencies[@]}" > /dev/null 2>&1
+	echo "${wep_attack_dependencies[@]}" > /dev/null 2>&1
 	echo "${is_arm}" > /dev/null 2>&1
 }
 

@@ -109,18 +109,19 @@ Compatible with any Linux distribution that has installed the tools needed. The 
 
 #### Optional tools &#8592; Not necessary to work, only needed for some features
 
- Command     | Possible package name    | &#149;  | Command  | Possible package name                                
-:------------|:-------------------------|:-------:|:---------|:-----------------------------------------------------
- wpaclean    | aircrack-ng              | &#9474; | ettercap | ettercap \| ettercap-text-only \| ettercap-graphical
- crunch      | crunch                   | &#9474; | etterlog | ettercap \| ettercap-text-only \| ettercap-graphical
- aireplay-ng | aircrack-ng              | &#9474; | sslstrip | sslstrip                                             
- mdk3        | mdk3                     | &#9474; | dhcpd    | isc-dhcp-server \| dhcp-server \| dhcp               
- hashcat     | hashcat                  | &#9474; | dnsspoof | dsniff                                               
- hostapd     | hostapd                  | &#9474; | wash     | reaver                                               
- lighttpd    | lighttpd                 | &#9474; | reaver   | reaver                                               
- iptables    | iptables                 | &#9474; | bully    | bully                                                
- bettercap   | bettercap                | &#9474; | pixiewps | pixiewps                                             
- beef        | beef-xss \| beef-project | &#9474; | unbuffer | expect \| expect-dev                                 
+ Command        | Possible package name    | &#149;  | Command  | Possible package name                                
+:---------------|:-------------------------|:-------:|:---------|:-----------------------------------------------------
+ wpaclean       | aircrack-ng              | &#9474; | ettercap | ettercap \| ettercap-text-only \| ettercap-graphical
+ crunch         | crunch                   | &#9474; | etterlog | ettercap \| ettercap-text-only \| ettercap-graphical
+ aireplay-ng    | aircrack-ng              | &#9474; | sslstrip | sslstrip                                             
+ mdk3           | mdk3                     | &#9474; | dhcpd    | isc-dhcp-server \| dhcp-server \| dhcp               
+ hashcat        | hashcat                  | &#9474; | dnsspoof | dsniff                                               
+ hostapd        | hostapd                  | &#9474; | wash     | reaver                                               
+ lighttpd       | lighttpd                 | &#9474; | reaver   | reaver                                               
+ iptables       | iptables                 | &#9474; | bully    | bully                                                
+ bettercap      | bettercap                | &#9474; | pixiewps | pixiewps                                             
+ beef           | beef-xss \| beef-project | &#9474; | unbuffer | expect \| expect-dev                                 
+ packetforge-ng | aircrack-ng              | &#9474; |                                                                 
 
 ##### Important tips about BeEF
 
