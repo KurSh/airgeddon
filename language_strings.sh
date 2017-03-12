@@ -3720,6 +3720,14 @@ function language_strings() {
 	arr["RUSSIAN",427]="Меню атак на WEP"
 	arr["GREEK",427]="Μενού επιθέσεων WEP"
 
+	arr["ENGLISH",428]="WEP \"All-in-One\" attack has been started. Press [Enter] key on this window to stop it"
+	arr["SPANISH",428]="El ataque WEP \"Todo-en-Uno\" ha comenzado. Pulse la tecla [Enter] en esta ventana para pararlo"
+	arr["FRENCH",428]="${pending_of_translation} L'attaque WEP \"Tout-en-Un\" a commencé. Pressez la touche [Entrée] dans cette console pour l'arrêter"
+	arr["CATALAN",428]="${pending_of_translation} L'atac WEP \"Tot-en-Un\" ha començat. Prem [Enter] a aquesta finestra per aturar-lo"
+	arr["PORTUGUESE",428]="${pending_of_translation} Ataque WEP \"Tudo-em-Um\" iniciado. Pressione a tecla [Enter] nesta janela para parar"
+	arr["RUSSIAN",428]="${pending_of_translation} Атака WEP \"Все-в-Одном\" началась. Для её остановки клавишу [Enter] в этом окне"
+	arr["GREEK",428]="${pending_of_translation} WEP \"Ολα-σε-ένα\" έχει αρχίσει την επίθεση. Πατήστε το κουμπί [Enter] σε αυτό το παράθυρο για να την σταματήσετε"
+
 	case "${3}" in
 		"yellow")
 			interrupt_checkpoint "${2}" "${3}"
