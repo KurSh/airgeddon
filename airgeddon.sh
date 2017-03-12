@@ -1526,7 +1526,7 @@ function validate_network_encryption_type() {
 
 	case ${1} in
 		"WPA"|"WPA2")
-			if [[ ${enc} != "WPA" ]] && [[ ${enc} != "WPA2" ]]; then
+			if [[ "${enc}" != "WPA" ]] && [[ "${enc}" != "WPA2" ]]; then
 				echo
 				language_strings "${language}" 137 "red"
 				language_strings "${language}" 115 "read"
@@ -1534,7 +1534,7 @@ function validate_network_encryption_type() {
 			fi
 		;;
 		"WEP")
-			if [ ${enc} != "WEP" ]; then
+			if [ "${enc}" != "WEP" ]; then
 				echo
 				language_strings "${language}" 424 "red"
 				language_strings "${language}" 115 "read"
