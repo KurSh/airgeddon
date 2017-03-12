@@ -2,7 +2,7 @@
 #Title........: language_strings.sh
 #Description..: All the translated strings that airgeddon uses are located here. 
 #Author.......: v1s1t0r
-#Date.........: 20170305
+#Date.........: 20170312
 #Bash Version.: 4.2 or later
 
 #Set language_strings file version
@@ -3640,22 +3640,6 @@ function language_strings() {
 	arr["RUSSIAN",417]="Случилась непредвиденная ошибка, перенаправление в меню"
 	arr["GREEK",417]="Παρουσιάστηκε μη αναμενόμενο σφάλμα, γίνεται ανακατεύθυνση στο μενού"
 
-	arr["ENGLISH",418]="9.  WEP attacks menu"
-	arr["SPANISH",418]="9.  Menú de ataques WEP"
-	arr["FRENCH",418]="9.  Menu d'attaques WEP"
-	arr["CATALAN",418]="9.  Menú d'atacs WEP"
-	arr["PORTUGUESE",418]="9.  Menu de ataques WEP"
-	arr["RUSSIAN",418]="9.  Меню атак на WEP"
-	arr["GREEK",418]="9.  Μενού επιθέσεων WEP"
-
-	arr["ENGLISH",419]="WEP attacks menu"
-	arr["SPANISH",419]="Menú de ataques WEP"
-	arr["FRENCH",419]="Menu d'attaques WEP"
-	arr["CATALAN",419]="Menú d'atacs WEP"
-	arr["PORTUGUESE",419]="Menu de ataques WEP"
-	arr["RUSSIAN",419]="Меню атак на WEP"
-	arr["GREEK",419]="Μενού επιθέσεων WEP"
-
 	arr["ENGLISH",420]="The WEP protocol had a bad design and can be broken in a few minutes if we have enough generated traffic"
 	arr["SPANISH",420]="El protocolo WEP tuvo un diseño erróneo y se puede romper en pocos minutos si se genera tráfico suficiente"
 	arr["FRENCH",420]="${pending_of_translation} WEP est la conception erronée et peut se décomposer dans quelques minutes si suffisamment de trafic est généré"
@@ -3703,6 +3687,22 @@ function language_strings() {
 	arr["PORTUGUESE",425]="Você tem uma rede WEP válida selecionada. O script pode continuar..."
 	arr["RUSSIAN",425]="У вас есть подходящая целевая сеть WEP. Скрипт может продолжать..."
 	arr["GREEK",425]="Έχετε επιλέξει ένα έγκυρο δίκτυο-στόχος WEP. Το script μπορεί να συνεχίσει..."
+
+	arr["ENGLISH",426]="9.  WEP attacks menu"
+	arr["SPANISH",426]="9.  Menú de ataques WEP"
+	arr["FRENCH",426]="9.  Menu d'attaques WEP"
+	arr["CATALAN",426]="9.  Menú d'atacs WEP"
+	arr["PORTUGUESE",426]="9.  Menu de ataques WEP"
+	arr["RUSSIAN",426]="9.  Меню атак на WEP"
+	arr["GREEK",426]="9.  Μενού επιθέσεων WEP"
+
+	arr["ENGLISH",427]="WEP attacks menu"
+	arr["SPANISH",427]="Menú de ataques WEP"
+	arr["FRENCH",427]="Menu d'attaques WEP"
+	arr["CATALAN",427]="Menú d'atacs WEP"
+	arr["PORTUGUESE",427]="Menu de ataques WEP"
+	arr["RUSSIAN",427]="Меню атак на WEP"
+	arr["GREEK",427]="Μενού επιθέσεων WEP"
 
 	case "${3}" in
 		"yellow")
