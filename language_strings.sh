@@ -3653,7 +3653,7 @@ function language_strings() {
 	arr["FRENCH",419]="${pending_of_translation} Vous voulez falsifier l'adresse MAC de votre carte lors de l'attaque? ${normal_color}[y/n]"
 	arr["CATALAN",419]="¿Vols falsejar l'adreça MAC de la targeta durant l'atac? ${normal_color}[y/n]"
 	arr["PORTUGUESE",419]="Você quer modificar o endereço MAC da sua interface durante o ataque? ${normal_color}[y/n]"
-	arr["RUSSIAN",419]="${pending_of_translation} Вы хотите подменить свой MAC-адрес во время этой атаки? ${normal_color}[y/n]"
+	arr["RUSSIAN",419]="Вы хотите подменить свой MAC-адрес во время этой атаки? ${normal_color}[y/n]"
 	arr["GREEK",419]="Θέλετε να κρύψετε την αληθινή διεύθυνση MAC, δημιουργώντας μία ψεύτικη κατά την διάρκεια αυτής της επίθεσης; ${normal_color}[y/n]"
 
 	arr["ENGLISH",420]="The WEP protocol had a bad design and can be broken in a few minutes if we have enough generated traffic"
