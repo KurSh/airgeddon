@@ -1556,6 +1556,7 @@ function validate_network_encryption_type() {
 }
 
 #Execute wep all-in-one attack
+#shellcheck disable=SC2164
 function exec_wep_allinone_attack() {
 
 	debug_print
