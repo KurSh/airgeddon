@@ -2,7 +2,7 @@
 #Title........: language_strings.sh
 #Description..: All the translated strings that airgeddon uses are located here. 
 #Author.......: v1s1t0r
-#Date.........: 20170312
+#Date.........: 20170319
 #Bash Version.: 4.2 or later
 
 #Set language_strings file version
@@ -294,6 +294,32 @@ function language_strings() {
 	et_misc_texts["PORTUGUESE",27]="Este ataque tem duas partes. Com este ataque, fique atento na tela do sniffer para ver se aparece alguma senha. Você também pode abrir o painel de controle do BeEF em ${white_color}${beef_control_panel_url}${pink_color} , login (user: ${white_color}beef${pink_color} / senha: ${white_color}${beef_pass}${pink_color}) e tentar controlar o navegador dos clientes"
 	et_misc_texts["RUSSIAN",27]="Эта атака идёт по двум направлениям. Вы можете наблюдать за окном сниффера, чтобы отследить появление пароля. Также можете перейти в панель управления BeEF ${white_color}${beef_control_panel_url}${pink_color} , учётные данные для входа (user: ${white_color}beef${pink_color} / pass: ${white_color}${beef_pass}${pink_color}) и попытаться управлять браузером клиентов"
 	et_misc_texts["GREEK",27]="Αυτή η επίθεση έχει δύο μέρη. Παρακολουθήστε την οθόνη του sniffer για να δείτε εαν εμφανιστεί κάποιος κωδικός. Μπορείτε επίσης να ανοίξετε τον πίνακα ελέγχου του BeEF στο ${white_color}${beef_control_panel_url}${pink_color} , συνδεθείτε (user: ${white_color}beef${pink_color} / pass: ${white_color}${beef_pass}${pink_color}) και προσπαθείστε να ελέγξετε τον browser του χρήστη-πελάτη"
+
+	declare -gA wep_texts
+	wep_texts["ENGLISH",1]="airgeddon. Captured password during WEP attack"
+	wep_texts["SPANISH",1]="airgeddon. Contraseña capturada en ataque WEP"
+	wep_texts["FRENCH",1]="${pending_of_translation} airgeddon. Mot de passe capturé dans l'attaque WEP"
+	wep_texts["CATALAN",1]="${pending_of_translation} airgeddon. Contrasenya capturada en atac WEP"
+	wep_texts["PORTUGUESE",1]="${pending_of_translation} airgeddon. Senha capturada no ataque WEP"
+	wep_texts["RUSSIAN",1]="${pending_of_translation} airgeddon. Пароль захватили в атаке WEP"
+	wep_texts["GREEK",1]="${pending_of_translation} airgeddon. Κωδικός πρόσβασης δεν σταματούν σε επίθεση WEP"
+
+	wep_texts["ENGLISH",2]="Channel"
+	wep_texts["SPANISH",2]="Canal"
+	wep_texts["FRENCH",2]="Canal"
+	wep_texts["CATALAN",2]="Canal"
+	wep_texts["PORTUGUESE",2]="Canal"
+	wep_texts["RUSSIAN",2]="Канал"
+	wep_texts["GREEK",2]="Κανάλι"
+
+	wep_texts["ENGLISH",3]="Hexadecimal"
+	wep_texts["SPANISH",3]="Hexadecimal"
+	wep_texts["FRENCH",3]="${pending_of_translation} Hexadécimal"
+	wep_texts["CATALAN",3]="${pending_of_translation} Hexadecimal"
+	wep_texts["PORTUGUESE",3]="${pending_of_translation} Hexadecimal"
+	wep_texts["RUSSIAN",3]="${pending_of_translation} Шестнадцатеричный"
+	wep_texts["GREEK",3]="${pending_of_translation} Δεκαεξαδικό"
+
 
 	declare -A arr
 	arr["ENGLISH",0]="This interface ${interface} is already in managed mode"
@@ -3727,6 +3753,30 @@ function language_strings() {
 	arr["PORTUGUESE",428]="${pending_of_translation} Ataque WEP \"Tudo-em-Um\" iniciado. Pressione a tecla [Enter] nesta janela para parar"
 	arr["RUSSIAN",428]="${pending_of_translation} Атака WEP \"Все-в-Одном\" началась. Для её остановки клавишу [Enter] в этом окне"
 	arr["GREEK",428]="${pending_of_translation} WEP \"Ολα-σε-ένα\" έχει αρχίσει την επίθεση. Πατήστε το κουμπί [Enter] σε αυτό το παράθυρο για να την σταματήσετε"
+
+	arr["ENGLISH",429]="WEP key decrypted successfully. ASCII / Hexadecimal: ${normal_color}${wep_ascii_key}${blue_color} / ${normal_color}${wep_hex_key}${blue_color}"
+	arr["SPANISH",429]="Clave WEP desencriptada con éxito. ASCII / Hexadecimal: ${normal_color}${wep_ascii_key}${blue_color} / ${normal_color}${wep_hex_key}${blue_color}"
+	arr["FRENCH",429]="${pending_of_translation} Clé WEP déchiffré avec succès. ASCII / Hexadécimal: ${normal_color}${wep_ascii_key}${blue_color} / ${normal_color}${wep_hex_key}${blue_color}"
+	arr["CATALAN",429]="${pending_of_translation} Clau WEP desencriptada amb èxit. ASCII / Hexadecimal: ${normal_color}${wep_ascii_key}${blue_color} / ${normal_color}${wep_hex_key}${blue_color}"
+	arr["PORTUGUESE",429]="${pending_of_translation} Chave WEP descriptografado com sucesso. ASCII / Hexadecimal: ${normal_color}${wep_ascii_key}${blue_color} / ${normal_color}${wep_hex_key}${blue_color}"
+	arr["RUSSIAN",429]="${pending_of_translation} Ключ WEP расшифрован. ASCII / Шестнадцатеричный: ${normal_color}${wep_ascii_key}${blue_color} / ${normal_color}${wep_hex_key}${blue_color}"
+	arr["GREEK",429]="${pending_of_translation} Κλειδί WEP αποκρυπτογραφηθούν με επιτυχία. ASCII / Δεκαεξαδικό: ${normal_color}${wep_ascii_key}${blue_color} / ${normal_color}${wep_hex_key}${blue_color}"
+
+	arr["ENGLISH",430]="Type the path to store the file or press [Enter] to accept the default proposal ${normal_color}[${wep_potpath}]"
+	arr["SPANISH",430]="Escribe la ruta donde guardaremos el fichero o pulsa [Enter] para aceptar la propuesta por defecto ${normal_color}[${wep_potpath}]"
+	arr["FRENCH",430]="Entrez le chemin où vous voulez enregistrer le fichier ou bien appuyez sur [Entrée] pour utiliser le chemin proposé ${normal_color}[${wep_potpath}]"
+	arr["CATALAN",430]="Escriu la ruta on guardarem el fitxer o prem [Enter] per acceptar la proposta per defecte ${normal_color}[${wep_potpath}]"
+	arr["PORTUGUESE",430]="Digite o caminho onde armazenar o arquivo ou pressione [Enter] para aceitar o padrão ${normal_color}[${wep_potpath}]"
+	arr["RUSSIAN",430]="Напечатайте путь к сохранённому файлу или нажмите [Enter] для принятия предложения по умолчоанию ${normal_color}[${wep_potpath}]"
+	arr["GREEK",430]="Πληκτρολογήστε το μονοπάτι για την αποθήκευση του αρχείου ή πατήστε [Enter] για την προεπιλεγμένη επιλογή ${normal_color}[${wep_potpath}]"
+
+	arr["ENGLISH",431]="WEP trophy file generated successfully at [${normal_color}${weppotenteredpath}${blue_color}]"
+	arr["SPANISH",431]="Fichero de trofeo WEP generado con éxito en [${normal_color}${weppotenteredpath}${blue_color}]"
+	arr["FRENCH",431]="Le fichier trophée WEP a bien été crée dans [${normal_color}${weppotenteredpath}${blue_color}]"
+	arr["CATALAN",431]="Fitxer de trofeu WEP generat amb èxit a [${normal_color}${weppotenteredpath}${blue_color}]"
+	arr["PORTUGUESE",431]="Arquivo troféu WEP gerado com sucesso [${normal_color}${weppotenteredpath}${blue_color}]"
+	arr["RUSSIAN",431]="Трофейный файл WEP был успешно сгенерирован в [${normal_color}${weppotenteredpath}${blue_color}]"
+	arr["GREEK",431]="Το WEP αρχείο τρόπαιο δημιουργήθηκε επιτυχώς [${normal_color}${weppotenteredpath}${blue_color}]"
 
 	case "${3}" in
 		"yellow")

