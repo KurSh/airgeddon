@@ -1562,7 +1562,7 @@ function exec_wep_allinone_attack() {
 	debug_print
 
 	echo
-	language_strings "${language}" 296 "yellow"
+	language_strings "${language}" 434 "yellow"
 	language_strings "${language}" 115 "read"
 
 	tmpfiles_toclean=1
@@ -1577,7 +1577,7 @@ function exec_wep_allinone_attack() {
 	wep_processes=()
 
 	recalculate_windows_sizes
-	xterm -hold -bg black -fg white -geometry "${g5_topright_window}" -T "Capturing WEP Data" -e "airodump-ng -d ${bssid} -c ${channel} -w \"${tmpdir}${wep_data}\" ${interface}" > /dev/null 2>&1 &
+	xterm -bg black -fg white -geometry "${g5_topright_window}" -T "Capturing WEP Data" -e "airodump-ng -d ${bssid} -c ${channel} -w \"${tmpdir}${wep_data}\" ${interface}" > /dev/null 2>&1 &
 	wep_capture_pid=$!
 	wep_processes+=(${wep_capture_pid})
 
@@ -1640,7 +1640,9 @@ function exec_wep_allinone_attack() {
 		fi
 
 		wep_aircrack_pid_alive=$(ps uax | awk '{print $2}' | grep ${wep_aircrack_pid} 2> /dev/null | head -n 1)
-		if [[ -z ${wep_aircrack_pid_alive} ]] && [[ ${wep_aircrack_launched} -eq 1 ]]; then
+		if [[ -z "${wep_aircrack_pid_alive}" ]] && [[ ${wep_aircrack_launched} -eq 1 ]]; then
+			break
+		elif [[ -z "${wep_capture_pid_alive}" ]]; then
 			break
 		fi
 	done
