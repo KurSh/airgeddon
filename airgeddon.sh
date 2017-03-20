@@ -244,7 +244,7 @@ declare evil_twin_hints=(254 258 264 269 309 328 400)
 declare evil_twin_dos_hints=(267 268)
 declare beef_hints=(408)
 declare wps_hints=(342 343 344 356 369 390)
-declare wep_hints=(420 421 422)
+declare wep_hints=(420 421 422 432 433)
 
 #Charset vars
 crunch_lowercasecharset="abcdefghijklmnopqrstuvwxyz"

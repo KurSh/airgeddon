@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #Title........: language_strings.sh
-#Description..: All the translated strings that airgeddon uses are located here. 
+#Description..: All the translated strings that airgeddon uses are located here.
 #Author.......: v1s1t0r
-#Date.........: 20170319
+#Date.........: 20170320
 #Bash Version.: 4.2 or later
 
 #Set language_strings file version
@@ -3690,13 +3690,13 @@ function language_strings() {
 	arr["RUSSIAN",420]="${pending_of_translation} Протокол WEP был плохой дизайн и может быть нарушена в течение нескольких минут, если у нас есть достаточно генерируемый трафик"
 	arr["GREEK",420]="${pending_of_translation} Το πρωτόκολλο WEP είχε ένα κακό σχεδιασμό και μπορεί να σπάσει μέσα σε λίγα λεπτά, αν έχουμε αρκετό δημιουργείται κυκλοφορίας"
 
-	arr["ENGLISH",421]="The WEP \"All-in-One\" attack combines different techniques to generate enough traffic to decrypt the key (Caffe Latte, Hirte, Chop-Chop, Fragmentation, Fake association, etc.)"
-	arr["SPANISH",421]="El ataque WEP \"Todo-en-Uno\" combina diversas técnicas para generar el tráfico suficiente que hace falta para desencriptar la clave (Caffe Latte, Hirte, Chop-Chop, Fragmentación, Falsa asociación, etc.)"
-	arr["FRENCH",421]="${pending_of_translation} L'attaque WEP \"Tout-en-Un\" combine plusieurs techniques pour générer suffisamment de trafic qui est nécessaire pour décrypter la clé (Caffe Latte, Hirte, Chop-Chop, Fragmentation, Fausse association, etc.)"
-	arr["CATALAN",421]="${pending_of_translation} L'atac WEP \"Tot-en-Un\" combina diverses tècniques per generar el trànsit suficient que cal per desxifrar la clau (Caffe Latte, Hirte, Chop-Chop, Fragmentació, Falsa associació, etc.)"
-	arr["PORTUGUESE",421]="O ataque WEP \"Tudo-em-Um\" combina várias técnicas para gerar tráfego suficiente que é necessário para desencriptar a chave (Caffe Latte, Hirte, Chop-Chop, Fragmentação, Falsa associação, etc.)"
-	arr["RUSSIAN",421]="${pending_of_translation} WEP \"Все-в-Одном\" атака сочетает в себе различные методы, чтобы генерировать достаточно трафика, чтобы расшифровать ключ (Caffe Latte, Hirte, Chop-Chop, Дробление, фальшивый ассоциации и т.д.)"
-	arr["GREEK",421]="${pending_of_translation} Το WEP \"Ολα-σε-ένα\" επίθεση συνδυάζει διαφορετικές τεχνικές για να παράγουν αρκετή κίνηση για να αποκρυπτογραφήσει το κλειδί (Caffe Latte, Hirte, Chop-Chop, Θρυμματισμός, ψευδή ένωση, κλπ)"
+	arr["ENGLISH",421]="The WEP \"All-in-One\" attack combines different techniques to generate enough traffic to decrypt the key (Caffe Latte, Hirte, Replay, Chop-Chop, Fragmentation, Fake association, etc.)"
+	arr["SPANISH",421]="El ataque WEP \"Todo-en-Uno\" combina diversas técnicas para generar el tráfico suficiente que hace falta para desencriptar la clave (Caffe Latte, Hirte, Replay, Chop-Chop, Fragmentación, Falsa asociación, etc.)"
+	arr["FRENCH",421]="${pending_of_translation} L'attaque WEP \"Tout-en-Un\" combine plusieurs techniques pour générer suffisamment de trafic qui est nécessaire pour décrypter la clé (Caffe Latte, Hirte, Replay, Chop-Chop, Fragmentation, Fausse association, etc.)"
+	arr["CATALAN",421]="${pending_of_translation} L'atac WEP \"Tot-en-Un\" combina diverses tècniques per generar el trànsit suficient que cal per desxifrar la clau (Caffe Latte, Hirte, Replay, Chop-Chop, Fragmentació, Falsa associació, etc.)"
+	arr["PORTUGUESE",421]="O ataque WEP \"Tudo-em-Um\" combina várias técnicas para gerar tráfego suficiente que é necessário para desencriptar a chave (Caffe Latte, Hirte, Replay, Chop-Chop, Fragmentação, Falsa associação, etc.)"
+	arr["RUSSIAN",421]="${pending_of_translation} WEP \"Все-в-Одном\" атака сочетает в себе различные методы, чтобы генерировать достаточно трафика, чтобы расшифровать ключ (Caffe Latte, Hirte, Replay, Chop-Chop, Дробление, фальшивый ассоциации и т.д.)"
+	arr["GREEK",421]="${pending_of_translation} Το WEP \"Ολα-σε-ένα\" επίθεση συνδυάζει διαφορετικές τεχνικές για να παράγουν αρκετή κίνηση για να αποκρυπτογραφήσει το κλειδί (Caffe Latte, Hirte, Replay, Chop-Chop, Θρυμματισμός, ψευδή ένωση, κλπ)"
 
 	arr["ENGLISH",422]="If real clients exist connected to the WEP encryption network, the process will be significantly accelerated. Enough IVs (Initialization Vectors) will be catched earlier"
 	arr["SPANISH",422]="Si existen clientes reales conectados a la red con encriptación WEP, el proceso se acelerará notablemente. Se obtendrán antes suficientes IVs (Vectores de Inicialización)"
@@ -3777,6 +3777,22 @@ function language_strings() {
 	arr["PORTUGUESE",431]="Arquivo troféu WEP gerado com sucesso [${normal_color}${weppotenteredpath}${blue_color}]"
 	arr["RUSSIAN",431]="Трофейный файл WEP был успешно сгенерирован в [${normal_color}${weppotenteredpath}${blue_color}]"
 	arr["GREEK",431]="Το WEP αρχείο τρόπαιο δημιουργήθηκε επιτυχώς [${normal_color}${weppotenteredpath}${blue_color}]"
+
+	arr["ENGLISH",432]="Captured IVs (Initialization Vectors) are shown on airodump capture window as \"Data\""
+	arr["SPANISH",432]="Los IVs (Vectores de Inicialización) capturados, son representados en la ventana de captura de airodump como \"Data\""
+	arr["FRENCH",432]="${pending_of_translation} Les IVs (Vecteurs de Initialisation) capturés, sont représentés dans la capture fenêtre airodump comme \"Data\""
+	arr["CATALAN",432]="${pending_of_translation} Els IVs (Vectors d'Inicialització) capturats, són representats en la finestra de captura de airodump com \"Data\""
+	arr["PORTUGUESE",432]="${pending_of_translation} Os IVs (Vetores de Inicialização) capturados, são representados na captura de janela airodump como \"Data\""
+	arr["RUSSIAN",432]="${pending_of_translation} Захваченные IVs (Инициализационные векторы) показаны в окне захвата airodump как \"Data\""
+	arr["GREEK",432]="${pending_of_translation} συλλαμβάνονται IVs (Εκκίνηση Φορείς) εμφανίζεται στο παράθυρο λήψης airodump ως \"Data\""
+
+	arr["ENGLISH",433]="Some access points are not vulnerable to certain WEP attacks. Like for example the Chop-Chop attack, that only affects to some of them"
+	arr["SPANISH",433]="Algunos puntos de acceso no son vulnerables a ciertos ataques WEP. Como por ejemplo el ataque Chop-Chop, que solo afecta a algunos"
+	arr["FRENCH",433]="${pending_of_translation} Certains points d'accès ne sont pas vulnérables aux attaques certains WEP. Tels que Chop-Chop, attaque affecte seulement certains"
+	arr["CATALAN",433]="${pending_of_translation} Alguns punts d'accés no són vulnerables a certs atacs WEP. Com per exemple l'atac Chop-Chop, que només afecta alguns"
+	arr["PORTUGUESE",433]="${pending_of_translation} Alguns pontos de acesso não são vulneráveis a certos ataques WEP. Tais como Chop-Chop, ataque afeta apenas alguns"
+	arr["RUSSIAN",433]="${pending_of_translation} Некоторые точки доступа не подвержены определенным атакам WEP. Например, нападение Chop-Chop, которое влияет только на некоторые из них"
+	arr["GREEK",433]="${pending_of_translation} Ορισμένα σημεία πρόσβασης δεν είναι ευάλωτα σε ορισμένες επιθέσεις WEP. Όπως για παράδειγμα η επίθεση Chop-Chop ότι επηρεάζει μόνο σε μερικά από αυτά"
 
 	case "${3}" in
 		"yellow")
