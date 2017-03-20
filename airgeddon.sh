@@ -1692,7 +1692,7 @@ function wep_fragmentation_attack() {
 		;;
 		3)
 			wep_fragmentation_phase2_pid_alive=$(ps uax | awk '{print $2}' | grep "${wep_fragmentation_phase2_pid}" 2> /dev/null | head -n 1)
-			if [ -z ${wep_fragmentation_phase2_pid_alive} ]; then
+			if [ -z "${wep_fragmentation_phase2_pid_alive}" ]; then
 				recalculate_windows_sizes
 				xterm -hold -bg black -fg blue -geometry "${g5_left6}" -T "Fragmentation Attack (${wep_fragmentation_phase}/3)" -e "yes | aireplay-ng -2 -F -r \"${tmpdir}${wepdir}fragmentation.cap\" ${interface}" > /dev/null 2>&1 &
 				wep_processes+=($!)
