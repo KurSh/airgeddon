@@ -2,7 +2,7 @@
 #Title........: language_strings.sh
 #Description..: All the translated strings that airgeddon uses are located here.
 #Author.......: v1s1t0r
-#Date.........: 20170320
+#Date.........: 20170321
 #Bash Version.: 4.2 or later
 
 #Set language_strings file version
@@ -3794,13 +3794,13 @@ function language_strings() {
 	arr["RUSSIAN",433]="${pending_of_translation} Некоторые точки доступа не подвержены определенным атакам WEP. Например, нападение Chop-Chop, которое влияет только на некоторые из них"
 	arr["GREEK",433]="${pending_of_translation} Ορισμένα σημεία πρόσβασης δεν είναι ευάλωτα σε ορισμένες επιθέσεις WEP. Όπως για παράδειγμα η επίθεση Chop-Chop ότι επηρεάζει μόνο σε μερικά από αυτά"
 
-	arr["ENGLISH",434]="All parameters and requirements are set. The attack is going to start. Multiple windows will be opened. If you want to stop the attack manually, close the capture window or the decryption window once it appears and the script will automatically close all"
-	arr["SPANISH",434]="Todos los parámetros y requerimientos están listos. Va a comenzar el ataque. Se abrirán múltiples ventanas. Cuando quieras parar el ataque, cierra manualmente la ventana de captura o la de desencriptado una vez aparezca esta y el script cerrará automaticamente todo"
-	arr["FRENCH",434]="${pending_of_translation} Tous les paramètres et les exigences sont prêts. Vous allez commencer l'attaque. Plusieurs consoles vont s'ouvrir. Lorsque vous voulez arrêter l'attaque, fermer manuellement la fenêtre de capture ou de déchiffrement, une fois le script apparaît cela et fermer automatiquement toutes les"
-	arr["CATALAN",434]="${pending_of_translation} Tots els paràmetres i requeriments estan preparats. Començarà l'atac. S'obriran múltiples finestres. Quan vulguis parar l'atac, tanca manualment la finestra de captura o la de desencriptat un cop aparegui aquesta i l'script tancarà automàticament tot"
-	arr["PORTUGUESE",434]="${pending_of_translation} Todos os parâmetros e requisitos estão prontos. Você vai começar o ataque. várias janelas abertas. Quando quiser parar o ataque, feche manualmente a janela de captura ou descriptografia uma vez que o script aparece isto e fechar automaticamente todos"
-	arr["RUSSIAN",434]="${pending_of_translation} Все параметры и требования готовы. Атака может быть начата. Несколько окон будут открыты. Если вы хотите остановить атаку вручную, закройте окно захвата или окно расшифровки после его появления, и скрипт автоматически закроет все"
-	arr["GREEK",434]="${pending_of_translation} Όλοι οι παράμετροι και οι απαιτήσεις έχουν τεθεί. Η επίθεση πρόκειται να ξεκινήσει. Πολλαπλά παράθυρα θα ανοίξει. Αν θέλετε να σταματήσετε την επίθεση με το χέρι, κλείστε το παράθυρο σύλληψη ή το παράθυρο αποκρυπτογράφησης αφού εμφανίζεται και το script θα κλείσει αυτόματα όλα"
+	arr["ENGLISH",434]="All parameters and requirements are set. The attack is going to start. Multiple windows will be opened. If you want to stop the attack manually, close the capture window or the decryption window once it appears (starting from 5000 IVs collected) and the script will automatically close all"
+	arr["SPANISH",434]="Todos los parámetros y requerimientos están listos. Va a comenzar el ataque. Se abrirán múltiples ventanas. Cuando quieras parar el ataque, cierra manualmente la ventana de captura o la de desencriptado una vez aparezca esta (a partir de tener 5000 IVs) y el script cerrará automaticamente todo"
+	arr["FRENCH",434]="${pending_of_translation} Tous les paramètres et les exigences sont prêts. Vous allez commencer l'attaque. Plusieurs consoles vont s'ouvrir. Lorsque vous voulez arrêter l'attaque, fermer manuellement la fenêtre de capture ou de déchiffrement, une fois le script apparaît (de 5000 ont IVs) cela et fermer automatiquement toutes les"
+	arr["CATALAN",434]="${pending_of_translation} Tots els paràmetres i requeriments estan preparats. Començarà l'atac. S'obriran múltiples finestres. Quan vulguis parar l'atac, tanca manualment la finestra de captura o la de desencriptat un cop aparegui aquesta (a partir de tenir 5000 IVs) i l'script tancarà automàticament tot"
+	arr["PORTUGUESE",434]="${pending_of_translation} Todos os parâmetros e requisitos estão prontos. Você vai começar o ataque. várias janelas abertas. Quando quiser parar o ataque, feche manualmente a janela de captura ou descriptografia uma vez que o script aparece isto (de 5000 têm IVs) e fechar automaticamente todos"
+	arr["RUSSIAN",434]="${pending_of_translation} Все параметры и требования готовы. Атака может быть начата. Несколько окон будут открыты. Если вы хотите остановить атаку вручную, закройте окно захвата или окно расшифровки после его появления (От 5000 имеют капельницы), и скрипт автоматически закроет все"
+	arr["GREEK",434]="${pending_of_translation} Όλοι οι παράμετροι και οι απαιτήσεις έχουν τεθεί. Η επίθεση πρόκειται να ξεκινήσει. Πολλαπλά παράθυρα θα ανοίξει. Αν θέλετε να σταματήσετε την επίθεση με το χέρι, κλείστε το παράθυρο σύλληψη ή το παράθυρο αποκρυπτογράφησης (Από το 5000 έχουν IVs) αφού εμφανίζεται και το script θα κλείσει αυτόματα όλα"
 
 	case "${3}" in
 		"yellow")
