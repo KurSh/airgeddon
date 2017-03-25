@@ -300,7 +300,7 @@ function language_strings() {
 	wep_texts["SPANISH",1]="airgeddon. Contraseña capturada en ataque WEP"
 	wep_texts["FRENCH",1]="${pending_of_translation} airgeddon. Mot de passe capturé dans l'attaque WEP"
 	wep_texts["CATALAN",1]="${pending_of_translation} airgeddon. Contrasenya capturada en atac WEP"
-	wep_texts["PORTUGUESE",1]="${pending_of_translation} airgeddon. Senha capturada no ataque WEP"
+	wep_texts["PORTUGUESE",1]="airgeddon. Senha capturada no ataque WEP"
 	wep_texts["RUSSIAN",1]="${pending_of_translation} airgeddon. Пароль захватили в атаке WEP"
 	wep_texts["GREEK",1]="${pending_of_translation} airgeddon. Κωδικός πρόσβασης δεν σταματούν σε επίθεση WEP"
 
@@ -316,7 +316,7 @@ function language_strings() {
 	wep_texts["SPANISH",3]="Hexadecimal"
 	wep_texts["FRENCH",3]="${pending_of_translation} Hexadécimal"
 	wep_texts["CATALAN",3]="${pending_of_translation} Hexadecimal"
-	wep_texts["PORTUGUESE",3]="${pending_of_translation} Hexadecimal"
+	wep_texts["PORTUGUESE",3]="Hexadecimal"
 	wep_texts["RUSSIAN",3]="${pending_of_translation} Шестнадцатеричный"
 	wep_texts["GREEK",3]="${pending_of_translation} Δεκαεξαδικό"
 
@@ -3750,7 +3750,7 @@ function language_strings() {
 	arr["SPANISH",428]="El ataque WEP \"Todo-en-Uno\" ha comenzado. Pulse la tecla [Enter] en esta ventana para pararlo"
 	arr["FRENCH",428]="${pending_of_translation} L'attaque WEP \"Tout-en-Un\" a commencé. Pressez la touche [Entrée] dans cette console pour l'arrêter"
 	arr["CATALAN",428]="${pending_of_translation} L'atac WEP \"Tot-en-Un\" ha començat. Prem [Enter] a aquesta finestra per aturar-lo"
-	arr["PORTUGUESE",428]="${pending_of_translation} Ataque WEP \"Tudo-em-Um\" iniciado. Pressione a tecla [Enter] nesta janela para parar"
+	arr["PORTUGUESE",428]="Ataque WEP \"Tudo-em-Um\" iniciado. Pressione a tecla [Enter] nesta janela para pará-lo"
 	arr["RUSSIAN",428]="${pending_of_translation} Атака WEP \"Все-в-Одном\" началась. Для её остановки клавишу [Enter] в этом окне"
 	arr["GREEK",428]="${pending_of_translation} WEP \"Ολα-σε-ένα\" έχει αρχίσει την επίθεση. Πατήστε το κουμπί [Enter] σε αυτό το παράθυρο για να την σταματήσετε"
 
@@ -3758,7 +3758,7 @@ function language_strings() {
 	arr["SPANISH",429]="Clave WEP desencriptada con éxito. ASCII / Hexadecimal: ${normal_color}${wep_ascii_key}${blue_color} / ${normal_color}${wep_hex_key}${blue_color}"
 	arr["FRENCH",429]="${pending_of_translation} Clé WEP déchiffré avec succès. ASCII / Hexadécimal: ${normal_color}${wep_ascii_key}${blue_color} / ${normal_color}${wep_hex_key}${blue_color}"
 	arr["CATALAN",429]="${pending_of_translation} Clau WEP desencriptada amb èxit. ASCII / Hexadecimal: ${normal_color}${wep_ascii_key}${blue_color} / ${normal_color}${wep_hex_key}${blue_color}"
-	arr["PORTUGUESE",429]="${pending_of_translation} Chave WEP descriptografado com sucesso. ASCII / Hexadecimal: ${normal_color}${wep_ascii_key}${blue_color} / ${normal_color}${wep_hex_key}${blue_color}"
+	arr["PORTUGUESE",429]="Senha WEP descriptografada com sucesso. ASCII / Hexadecimal: ${normal_color}${wep_ascii_key}${blue_color} / ${normal_color}${wep_hex_key}${blue_color}"
 	arr["RUSSIAN",429]="${pending_of_translation} Ключ WEP расшифрован. ASCII / Шестнадцатеричный: ${normal_color}${wep_ascii_key}${blue_color} / ${normal_color}${wep_hex_key}${blue_color}"
 	arr["GREEK",429]="${pending_of_translation} Κλειδί WEP αποκρυπτογραφηθούν με επιτυχία. ASCII / Δεκαεξαδικό: ${normal_color}${wep_ascii_key}${blue_color} / ${normal_color}${wep_hex_key}${blue_color}"
 
@@ -3774,7 +3774,7 @@ function language_strings() {
 	arr["SPANISH",431]="Fichero de trofeo WEP generado con éxito en [${normal_color}${weppotenteredpath}${blue_color}]"
 	arr["FRENCH",431]="Le fichier trophée WEP a bien été crée dans [${normal_color}${weppotenteredpath}${blue_color}]"
 	arr["CATALAN",431]="Fitxer de trofeu WEP generat amb èxit a [${normal_color}${weppotenteredpath}${blue_color}]"
-	arr["PORTUGUESE",431]="Arquivo troféu WEP gerado com sucesso [${normal_color}${weppotenteredpath}${blue_color}]"
+	arr["PORTUGUESE",431]="Arquivo de troféu WEP gerado com sucesso [${normal_color}${weppotenteredpath}${blue_color}]"
 	arr["RUSSIAN",431]="Трофейный файл WEP был успешно сгенерирован в [${normal_color}${weppotenteredpath}${blue_color}]"
 	arr["GREEK",431]="Το WEP αρχείο τρόπαιο δημιουργήθηκε επιτυχώς [${normal_color}${weppotenteredpath}${blue_color}]"
 
@@ -3782,7 +3782,7 @@ function language_strings() {
 	arr["SPANISH",432]="Los IVs (Vectores de Inicialización) capturados, son representados en la ventana de captura de airodump como \"Data\""
 	arr["FRENCH",432]="${pending_of_translation} Les IVs (Vecteurs de Initialisation) capturés, sont représentés dans la capture fenêtre airodump comme \"Data\""
 	arr["CATALAN",432]="${pending_of_translation} Els IVs (Vectors d'Inicialització) capturats, són representats en la finestra de captura de airodump com \"Data\""
-	arr["PORTUGUESE",432]="${pending_of_translation} Os IVs (Vetores de Inicialização) capturados, são representados na captura de janela airodump como \"Data\""
+	arr["PORTUGUESE",432]="Os IVs (Vetores de Inicialização) capturados, são representados na captura de janela airodump como \"Data\""
 	arr["RUSSIAN",432]="${pending_of_translation} Захваченные IVs (Инициализационные векторы) показаны в окне захвата airodump как \"Data\""
 	arr["GREEK",432]="${pending_of_translation} συλλαμβάνονται IVs (Εκκίνηση Φορείς) εμφανίζεται στο παράθυρο λήψης airodump ως \"Data\""
 
@@ -3790,7 +3790,7 @@ function language_strings() {
 	arr["SPANISH",433]="Algunos puntos de acceso no son vulnerables a ciertos ataques WEP. Como por ejemplo el ataque Chop-Chop, que solo afecta a algunos"
 	arr["FRENCH",433]="${pending_of_translation} Certains points d'accès ne sont pas vulnérables aux attaques certains WEP. Tels que Chop-Chop, attaque affecte seulement certains"
 	arr["CATALAN",433]="${pending_of_translation} Alguns punts d'accés no són vulnerables a certs atacs WEP. Com per exemple l'atac Chop-Chop, que només afecta alguns"
-	arr["PORTUGUESE",433]="${pending_of_translation} Alguns pontos de acesso não são vulneráveis a certos ataques WEP. Tais como Chop-Chop, ataque afeta apenas alguns"
+	arr["PORTUGUESE",433]="Alguns pontos de acesso não são vulneráveis a certos ataques WEP. Como por exemplo o ataque Chop-Chop, que só afeta alguns"
 	arr["RUSSIAN",433]="${pending_of_translation} Некоторые точки доступа не подвержены определенным атакам WEP. Например, нападение Chop-Chop, которое влияет только на некоторые из них"
 	arr["GREEK",433]="${pending_of_translation} Ορισμένα σημεία πρόσβασης δεν είναι ευάλωτα σε ορισμένες επιθέσεις WEP. Όπως για παράδειγμα η επίθεση Chop-Chop ότι επηρεάζει μόνο σε μερικά από αυτά"
 
@@ -3798,7 +3798,7 @@ function language_strings() {
 	arr["SPANISH",434]="Todos los parámetros y requerimientos están listos. Va a comenzar el ataque. Se abrirán múltiples ventanas. Cuando quieras parar el ataque, cierra manualmente la ventana de captura o la de desencriptado una vez aparezca esta (a partir de tener 5000 IVs) y el script cerrará automaticamente todo"
 	arr["FRENCH",434]="${pending_of_translation} Tous les paramètres et les exigences sont prêts. Vous allez commencer l'attaque. Plusieurs consoles vont s'ouvrir. Lorsque vous voulez arrêter l'attaque, fermer manuellement la fenêtre de capture ou de déchiffrement, une fois le script apparaît (de 5000 ont IVs) cela et fermer automatiquement toutes les"
 	arr["CATALAN",434]="${pending_of_translation} Tots els paràmetres i requeriments estan preparats. Començarà l'atac. S'obriran múltiples finestres. Quan vulguis parar l'atac, tanca manualment la finestra de captura o la de desencriptat un cop aparegui aquesta (a partir de tenir 5000 IVs) i l'script tancarà automàticament tot"
-	arr["PORTUGUESE",434]="${pending_of_translation} Todos os parâmetros e requisitos estão prontos. Você vai começar o ataque. várias janelas abertas. Quando quiser parar o ataque, feche manualmente a janela de captura ou descriptografia uma vez que o script aparece isto (de 5000 têm IVs) e fechar automaticamente todos"
+	arr["PORTUGUESE",434]="Todos os parâmetros e requisitos estão prontos. Você vai começar o ataque. várias janelas serão abertas. Quando quiser parar o ataque, feche manualmente a janela de captura ou de descriptografia quando aberta (a partir de 5000 IVs) e o script irá fechar automaticamente todas as outras"
 	arr["RUSSIAN",434]="${pending_of_translation} Все параметры и требования готовы. Атака может быть начата. Несколько окон будут открыты. Если вы хотите остановить атаку вручную, закройте окно захвата или окно расшифровки после его появления (От 5000 имеют капельницы), и скрипт автоматически закроет все"
 	arr["GREEK",434]="${pending_of_translation} Όλοι οι παράμετροι και οι απαιτήσεις έχουν τεθεί. Η επίθεση πρόκειται να ξεκινήσει. Πολλαπλά παράθυρα θα ανοίξει. Αν θέλετε να σταματήσετε την επίθεση με το χέρι, κλείστε το παράθυρο σύλληψη ή το παράθυρο αποκρυπτογράφησης (Από το 5000 έχουν IVs) αφού εμφανίζεται και το script θα κλείσει αυτόματα όλα"
 
