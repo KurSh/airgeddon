@@ -2,7 +2,7 @@
 #Title........: language_strings.sh
 #Description..: All the translated strings that airgeddon uses are located here.
 #Author.......: v1s1t0r
-#Date.........: 20170325
+#Date.........: 20170326
 #Bash Version.: 4.2 or later
 
 #Set language_strings file version
@@ -302,7 +302,7 @@ function language_strings() {
 	wep_texts["CATALAN",1]="${pending_of_translation} airgeddon. Contrasenya capturada en atac WEP"
 	wep_texts["PORTUGUESE",1]="airgeddon. Senha capturada no ataque WEP"
 	wep_texts["RUSSIAN",1]="${pending_of_translation} airgeddon. Пароль захватили в атаке WEP"
-	wep_texts["GREEK",1]="${pending_of_translation} airgeddon. Κωδικός πρόσβασης δεν σταματούν σε επίθεση WEP"
+	wep_texts["GREEK",1]="airgeddon. Ο κωδικός πρόσβασης κατά την διάρκεια της επίθεσης WEP"
 
 	wep_texts["ENGLISH",2]="Channel"
 	wep_texts["SPANISH",2]="Canal"
@@ -318,7 +318,7 @@ function language_strings() {
 	wep_texts["CATALAN",3]="${pending_of_translation} Hexadecimal"
 	wep_texts["PORTUGUESE",3]="Hexadecimal"
 	wep_texts["RUSSIAN",3]="${pending_of_translation} Шестнадцатеричный"
-	wep_texts["GREEK",3]="${pending_of_translation} Δεκαεξαδικό"
+	wep_texts["GREEK",3]="Δεκαεξαδικό"
 
 
 	declare -A arr
