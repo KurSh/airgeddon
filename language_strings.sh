@@ -3704,7 +3704,7 @@ function language_strings() {
 	arr["CATALAN",422]="${pending_of_translation} Si hi ha clients reals connectats a la xarxa amb encriptació WEP, el procés s'accelerarà notablement. S'obtindran abans suficients IVs (Vectors d'Inicialització)"
 	arr["PORTUGUESE",422]="Se clientes reais estiverem conectados à rede com criptografia WEP, o processo será acelerado significativamente. Serão obtidos IVs (Vetores de Inicialização) mais rapidamente"
 	arr["RUSSIAN",422]="${pending_of_translation} Если реальные клиенты существуют подключены к сети шифрования WEP, процесс будет значительно ускорен. Достаточно капельницы IVs (Инициализационные Векторов) будет пойманной ранее"
-	arr["GREEK",422]="Εάν υπάρχουν αληθινοί συνδεδεμένοι χρήστες στο κρυπτογραφημένο WEP δίκτυο, η διαδικασία θα επιταχυνθεί σημαντικά. Όσο περισσότερα είναι τα IVs (Initialization Vectors) τόσο πιο γρήγορα θα γίνει η διαδικασία"
+	arr["GREEK",422]="Εάν υπάρχουν αληθινοί συνδεδεμένοι χρήστες στο κρυπτογραφημένο WEP δίκτυο, η διαδικασία θα επιταχυνθεί σημαντικά. Θα καταγραφθούν αρκετά IVs (Initialization Vectors) γρηγορότερα"
 
 	arr["ENGLISH",423]="5.  WEP \"All-in-One\" attack"
 	arr["SPANISH",423]="5.  Ataque WEP \"Todo-en-Uno\""
@@ -3728,7 +3728,7 @@ function language_strings() {
 	arr["CATALAN",425]="Tens una xarxa objectiu WEP vàlida seleccionada. El script pot continuar..."
 	arr["PORTUGUESE",425]="Você tem uma rede WEP válida selecionada. O script pode continuar..."
 	arr["RUSSIAN",425]="У вас есть подходящая целевая сеть WEP. Скрипт может продолжать..."
-	arr["GREEK",425]="Έχετε επιλέξει ένα έγκυρο δίκτυο-στόχος WEP. Το script μπορεί να συνεχίσει..."
+	arr["GREEK",425]="Έχετε επιλέξει ένα έγκυρο WEP δίκτυο-στόχος. Το script μπορεί να συνεχίσει..."
 
 	arr["ENGLISH",426]="9.  WEP attacks menu"
 	arr["SPANISH",426]="9.  Menú de ataques WEP"
