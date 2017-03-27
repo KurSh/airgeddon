@@ -3,6 +3,10 @@
  - Added All-in-One WEP attack
  - Fixed bug on Handshake capture validations
 
+###6.12
+ - Fixed bug on network detection
+ - Fixed bug causing strange behaviour on some Linux handling optional_tools array
+
 ###6.11
  - Optional MAC spoofing added for all Evil Twin attacks
  - Spoofed MAC addresses restored on exit

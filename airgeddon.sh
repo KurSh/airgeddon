@@ -2,7 +2,7 @@
 #Title........: airgeddon.sh
 #Description..: This is a multi-use bash script for Linux systems to audit wireless networks.
 #Author.......: v1s1t0r
-#Date.........: 20170320
+#Date.........: 20170327
 #Version......: 7.0
 #Usage........: bash airgeddon.sh
 #Bash Version.: 4.2 or later
@@ -2409,7 +2409,7 @@ function initialize_optional_tools_values() {
 
 	debug_print
 
-	declare -gA optional_tools=()
+	declare -gA optional_tools
 
 	for item in "${optional_tools_names[@]}"; do
 		optional_tools[${item}]=0
@@ -6503,7 +6503,7 @@ function explore_for_targets_option() {
 	rm -rf "${tmpdir}clts.csv" > /dev/null 2>&1
 	recalculate_windows_sizes
 	xterm +j -bg black -fg white -geometry "${g1_topright_window}" -T "Exploring for targets" -e airodump-ng -w "${tmpdir}nws" "${interface}" > /dev/null 2>&1
-	targetline=$(awk '/(Station|Client[es])/{print NR}' < "${tmpdir}nws-01.csv")
+	targetline=$(awk '/(^Station[s]?|^Client[es]?)/{print NR}' < "${tmpdir}nws-01.csv")
 	targetline=$((targetline - 1))
 
 	head -n "${targetline}" "${tmpdir}nws-01.csv" &> "${tmpdir}nws.csv"
