@@ -3,6 +3,7 @@
 #Description..: All the translated strings that airgeddon uses are located here.
 #Author.......: v1s1t0r
 #Date.........: 20170327
+#Date.........: 20170403
 #Bash Version.: 4.2 or later
 
 #Set language_strings file version
@@ -3666,13 +3667,13 @@ function language_strings() {
 	arr["RUSSIAN",417]="Случилась непредвиденная ошибка, перенаправление в меню"
 	arr["GREEK",417]="Παρουσιάστηκε μη αναμενόμενο σφάλμα, γίνεται ανακατεύθυνση στο μενού"
 
-	arr["ENGLISH",418]="Restoring spoofed MAC"
-	arr["SPANISH",418]="Restaurando MAC falseada"
+	arr["ENGLISH",418]="Restoring MAC"
+	arr["SPANISH",418]="Restaurando MAC"
 	arr["FRENCH",418]="Rétablissement MAC faslifiée"
-	arr["CATALAN",418]="Restaurant MAC falsejada"
-	arr["PORTUGUESE",418]="Restaurando endereço MAC"
-	arr["RUSSIAN",418]="Восстановление исходного MAC"
-	arr["GREEK",418]="Γίνεται αποκατάσταση της πλαστής MAC"
+	arr["CATALAN",418]="Restaurant MAC"
+	arr["PORTUGUESE",418]="Restaurando MAC"
+	arr["RUSSIAN",418]="Восстановление MAC-адреса"
+	arr["GREEK",418]="Γίνεται αποκατάσταση της διεύθυνσης MAC"
 
 	arr["ENGLISH",419]="Do you want to spoof your MAC address during this attack? ${normal_color}[y/n]"
 	arr["SPANISH",419]="¿Deseas falsear la dirección MAC de tu tarjeta durante el ataque? ${normal_color}[y/n]"
