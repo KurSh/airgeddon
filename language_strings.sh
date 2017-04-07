@@ -298,7 +298,7 @@ function language_strings() {
 	declare -gA wep_texts
 	wep_texts["ENGLISH",1]="airgeddon. Captured password during WEP attack"
 	wep_texts["SPANISH",1]="airgeddon. Contraseña capturada en ataque WEP"
-	wep_texts["FRENCH",1]="${pending_of_translation} airgeddon. Mot de passe capturé dans l'attaque WEP"
+	wep_texts["FRENCH",1]="airgeddon. Mot de passe obtenu lors de l'attaque WEP"
 	wep_texts["CATALAN",1]="${pending_of_translation} airgeddon. Contrasenya capturada en atac WEP"
 	wep_texts["PORTUGUESE",1]="airgeddon. Senha capturada no ataque WEP"
 	wep_texts["RUSSIAN",1]="${pending_of_translation} airgeddon. Пароль захватили в атаке WEP"
@@ -314,7 +314,7 @@ function language_strings() {
 
 	wep_texts["ENGLISH",3]="Hexadecimal"
 	wep_texts["SPANISH",3]="Hexadecimal"
-	wep_texts["FRENCH",3]="${pending_of_translation} Hexadécimal"
+	wep_texts["FRENCH",3]="Hexadécimal"
 	wep_texts["CATALAN",3]="${pending_of_translation} Hexadecimal"
 	wep_texts["PORTUGUESE",3]="Hexadecimal"
 	wep_texts["RUSSIAN",3]="${pending_of_translation} Шестнадцатеричный"
