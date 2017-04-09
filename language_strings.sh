@@ -2,7 +2,7 @@
 #Title........: language_strings.sh
 #Description..: All the translated strings that airgeddon uses are located here.
 #Author.......: v1s1t0r
-#Date.........: 20170404
+#Date.........: 20170409
 #Bash Version.: 4.2 or later
 
 #Set language_strings file version
@@ -3682,22 +3682,6 @@ function language_strings() {
 	arr["RUSSIAN",419]="Вы хотите подменить свой MAC-адрес во время этой атаки? ${normal_color}[y/n]"
 	arr["GREEK",419]="Θέλετε να κρύψετε την αληθινή διεύθυνση MAC, δημιουργώντας μία ψεύτικη κατά την διάρκεια αυτής της επίθεσης; ${normal_color}[y/n]"
 
-	arr["ENGLISH",420]="The WEP protocol had a bad design and can be cracked in a few minutes if we have enough generated traffic"
-	arr["SPANISH",420]="El protocolo WEP tuvo un diseño erróneo y se puede romper en pocos minutos si se genera tráfico suficiente"
-	arr["FRENCH",420]="Le protocole WEP n'est pas sûr et peut se déchiffrer en quelques minutes si suffisamment de trafic est généré"
-	arr["CATALAN",420]="${pending_of_translation} El protocol WEP va tenir un disseny erroni i es pot trencar en pocs minuts si es genera trànsit suficient"
-	arr["PORTUGUESE",420]="O protocolo WEP é um projeto falho e pode ser quebrado em poucos minutos se tivermos tráfego suficiente"
-	arr["RUSSIAN",420]="Протокол WEP сделан неудачно и при достаточном количестве сгенерированного трафика может быть взломан в считанные минуты"
-	arr["GREEK",420]="Το πρωτόκολλο WEP είχε κακό σχεδιασμό και μπορεί να σπάσει μέσα σε λίγα λεπτά, αν έχουμε αρκετή κίνηση πακέτων"
-
-	arr["ENGLISH",421]="The WEP \"All-in-One\" attack combines different techniques to generate enough traffic to decrypt the key (Caffe Latte, Hirte, Replay, Chop-Chop, Fragmentation, Fake association, etc.)"
-	arr["SPANISH",421]="El ataque WEP \"Todo-en-Uno\" combina diversas técnicas para generar el tráfico suficiente que hace falta para desencriptar la clave (Caffe Latte, Hirte, Replay, Chop-Chop, Fragmentación, Falsa asociación, etc.)"
-	arr["FRENCH",421]="L'attaque WEP \"Tout-en-Un\" combine plusieurs techniques pour générer le trafic nécessaire au décryptage de la clef (Caffe Latte, Hirte, Replay, Chop-Chop, Fragmentation, Fausse association, etc.)"
-	arr["CATALAN",421]="${pending_of_translation} L'atac WEP \"Tot-en-Un\" combina diverses tècniques per generar el trànsit suficient que cal per desxifrar la clau (Caffe Latte, Hirte, Replay, Chop-Chop, Fragmentació, Falsa associació, etc.)"
-	arr["PORTUGUESE",421]="O ataque WEP \"Tudo-em-Um\" combina várias técnicas para gerar tráfego suficiente que é necessário para desencriptar a chave (Caffe Latte, Hirte, Replay, Chop-Chop, Fragmentação, Falsa associação, etc.)"
-	arr["RUSSIAN",421]="Атака WEP \"Все-в-Одном\" сочетает в себе различные методы генерации трафика, достаточного для расшифровки ключа (Caffe Latte, Hirte, Replay, Chop-Chop, Дробление, Фальшивые ассоциации и т.д.)"
-	arr["GREEK",421]="Η \"All-in-One\" επίθεση WEP συνδυάζει διαφορετικές τεχνικές για να παραχθεί αρκετή κίνηση για να αποκρυπτογραφήσει το κλειδί (Caffe Latte, Hirte, Replay, Chop-Chop, Fragmentation, Fake association, κλπ)"
-
 	arr["ENGLISH",422]="If real clients exist connected to the WEP encrypted network, the process will be significantly accelerated. Enough IVs (Initialization Vectors) will be catched faster"
 	arr["SPANISH",422]="Si existen clientes reales conectados a la red con encriptación WEP, el proceso se acelerará notablemente. Se obtendrán antes suficientes IVs (Vectores de Inicialización)"
 	arr["FRENCH",422]="Si des clients légitimes sont connectés à un rseau WEP le processus ira plus vite. Les Ivs requis (vecteurs d'incitiaisation) seront plus vite obtenus."
@@ -3801,6 +3785,22 @@ function language_strings() {
 	arr["PORTUGUESE",434]="Todos os parâmetros e requisitos estão prontos. Você vai começar o ataque. várias janelas serão abertas. Quando quiser parar o ataque, feche manualmente a janela de captura ou de descriptografia quando aberta (a partir de 5000 IVs) e o script irá fechar automaticamente todas as outras"
 	arr["RUSSIAN",434]="Все параметры и требования готовы. Атака может быть начата. Несколько окон будут открыты. Если вы хотите остановить атаку вручную, закройте окно захвата или окно расшифровки после его появления (начнётся после сбора от 5000 IVs), и скрипт автоматически закроет остальные"
 	arr["GREEK",434]="Όλοι οι παράμετροι και οι προαπαιτήσεις έχουν τεθεί. Η επίθεση πρόκειται να ξεκινήσει. Πολλαπλά παράθυρα θα ανοίξουν. Αν θέλετε να σταματήσετε την επίθεση χειροκίνητα, κλείστε το παράθυρο καταγραφής ή το παράθυρο αποκρυπτογράφησης όταν εμφανιστεί (όταν έχουν συγκεντρωθεί πάνω από 5000 IVs) και το script θα κλείσει αυτόματα όλα τα παράθυρα"
+
+	arr["ENGLISH",435]="The WEP protocol had a bad design and can be cracked in a few minutes if we have enough generated traffic"
+	arr["SPANISH",435]="El protocolo WEP tuvo un diseño erróneo y se puede romper en pocos minutos si se genera tráfico suficiente"
+	arr["FRENCH",435]="Le protocole WEP n'est pas sûr et peut se déchiffrer en quelques minutes si suffisamment de trafic est généré"
+	arr["CATALAN",435]="${pending_of_translation} El protocol WEP va tenir un disseny erroni i es pot trencar en pocs minuts si es genera trànsit suficient"
+	arr["PORTUGUESE",435]="O protocolo WEP é um projeto falho e pode ser quebrado em poucos minutos se tivermos tráfego suficiente"
+	arr["RUSSIAN",435]="Протокол WEP сделан неудачно и при достаточном количестве сгенерированного трафика может быть взломан в считанные минуты"
+	arr["GREEK",435]="Το πρωτόκολλο WEP είχε κακό σχεδιασμό και μπορεί να σπάσει μέσα σε λίγα λεπτά, αν έχουμε αρκετή κίνηση πακέτων"
+
+	arr["ENGLISH",436]="The WEP \"All-in-One\" attack combines different techniques to generate enough traffic to decrypt the key (Caffe Latte, Hirte, Replay, Chop-Chop, Fragmentation, Fake association, etc.)"
+	arr["SPANISH",436]="El ataque WEP \"Todo-en-Uno\" combina diversas técnicas para generar el tráfico suficiente que hace falta para desencriptar la clave (Caffe Latte, Hirte, Replay, Chop-Chop, Fragmentación, Falsa asociación, etc.)"
+	arr["FRENCH",436]="L'attaque WEP \"Tout-en-Un\" combine plusieurs techniques pour générer le trafic nécessaire au décryptage de la clef (Caffe Latte, Hirte, Replay, Chop-Chop, Fragmentation, Fausse association, etc.)"
+	arr["CATALAN",436]="${pending_of_translation} L'atac WEP \"Tot-en-Un\" combina diverses tècniques per generar el trànsit suficient que cal per desxifrar la clau (Caffe Latte, Hirte, Replay, Chop-Chop, Fragmentació, Falsa associació, etc.)"
+	arr["PORTUGUESE",436]="O ataque WEP \"Tudo-em-Um\" combina várias técnicas para gerar tráfego suficiente que é necessário para desencriptar a chave (Caffe Latte, Hirte, Replay, Chop-Chop, Fragmentação, Falsa associação, etc.)"
+	arr["RUSSIAN",436]="Атака WEP \"Все-в-Одном\" сочетает в себе различные методы генерации трафика, достаточного для расшифровки ключа (Caffe Latte, Hirte, Replay, Chop-Chop, Дробление, Фальшивые ассоциации и т.д.)"
+	arr["GREEK",436]="Η \"All-in-One\" επίθεση WEP συνδυάζει διαφορετικές τεχνικές για να παραχθεί αρκετή κίνηση για να αποκρυπτογραφήσει το κλειδί (Caffe Latte, Hirte, Replay, Chop-Chop, Fragmentation, Fake association, κλπ)"
 
 	case "${3}" in
 		"yellow")
