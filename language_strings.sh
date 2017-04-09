@@ -301,7 +301,7 @@ function language_strings() {
 	wep_texts["FRENCH",1]="airgeddon. Mot de passe obtenu lors de l'attaque WEP"
 	wep_texts["CATALAN",1]="${pending_of_translation} airgeddon. Contrasenya capturada en atac WEP"
 	wep_texts["PORTUGUESE",1]="airgeddon. Senha capturada no ataque WEP"
-	wep_texts["RUSSIAN",1]="${pending_of_translation} airgeddon. Пароль захватили в атаке WEP"
+	wep_texts["RUSSIAN",1]="airgeddon. В атаке WEP захвачен пароль"
 	wep_texts["GREEK",1]="airgeddon. Ο κωδικός πρόσβασης κατά την διάρκεια της επίθεσης WEP"
 
 	wep_texts["ENGLISH",2]="Channel"
@@ -317,7 +317,7 @@ function language_strings() {
 	wep_texts["FRENCH",3]="Hexadécimal"
 	wep_texts["CATALAN",3]="${pending_of_translation} Hexadecimal"
 	wep_texts["PORTUGUESE",3]="Hexadecimal"
-	wep_texts["RUSSIAN",3]="${pending_of_translation} Шестнадцатеричный"
+	wep_texts["RUSSIAN",3]="Шестнадцатеричный"
 	wep_texts["GREEK",3]="Δεκαεξαδικό"
 
 
