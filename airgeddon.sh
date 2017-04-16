@@ -126,6 +126,10 @@ broadcast_mac="FF:FF:FF:FF:FF:FF"
 wep_data="wepdata"
 wepdir="wep/"
 
+#Docker vars
+docker_based_distro="Kali"
+docker_io_dir="/io"
+
 #WPS vars
 minimum_reaver_pixiewps_version="1.5.2"
 minimum_bully_pixiewps_version="1.1"
@@ -148,6 +152,7 @@ urlscript_directlink="https://raw.githubusercontent.com/${github_user}/${github_
 urlscript_pins_dbfile="https://raw.githubusercontent.com/${github_user}/${github_repository}/${branch}/${known_pins_dbfile}"
 urlscript_pins_dbfile_checksum="https://raw.githubusercontent.com/${github_user}/${github_repository}/${branch}/${pins_dbfile_checksum}"
 urlscript_language_strings_file="https://raw.githubusercontent.com/${github_user}/${github_repository}/${branch}/${language_strings_file}"
+urlgithub_wiki="https://github.com/${github_user}/${github_repository}/wiki"
 host_to_check_internet="github.com"
 mail="v1s1t0r.1s.h3r3@gmail.com"
 author="v1s1t0r"
@@ -3679,7 +3684,7 @@ function manage_hashcat_pot() {
 		ask_yesno 235
 		if [ ${yesno} = "y" ]; then
 
-			hashcat_potpath=$(env | grep ^HOME | awk -F = '{print $2}')
+			hashcat_potpath="${default_save_path}"
 			lastcharhashcat_potpath=${hashcat_potpath: -1}
 			if [ "${lastcharhashcat_potpath}" != "/" ]; then
 				hashcat_potpath="${hashcat_potpath}/"
@@ -3709,7 +3714,7 @@ function manage_ettercap_log() {
 	ask_yesno 302
 	if [ ${yesno} = "y" ]; then
 		ettercap_log=1
-		default_ettercap_logpath=$(env | grep ^HOME | awk -F = '{print $2}')
+		default_ettercap_logpath="${default_save_path}"
 		lastcharettercaplogpath=${default_ettercap_logpath: -1}
 		if [ "${lastcharettercaplogpath}" != "/" ]; then
 			ettercap_logpath="${default_ettercap_logpath}/"
@@ -3734,7 +3739,7 @@ function manage_bettercap_log() {
 	ask_yesno 302
 	if [ ${yesno} = "y" ]; then
 		bettercap_log=1
-		default_bettercap_logpath=$(env | grep ^HOME | awk -F = '{print $2}')
+		default_bettercap_logpath="${default_save_path}"
 		lastcharbettercaplogpath=${default_bettercap_logpath: -1}
 		if [ "${lastcharbettercaplogpath}" != "/" ]; then
 			bettercap_logpath="${default_bettercap_logpath}/"
@@ -3793,7 +3798,7 @@ function manage_captive_portal_log() {
 
 	debug_print
 
-	default_et_captive_portal_logpath=$(env | grep ^HOME | awk -F = '{print $2}')
+	default_et_captive_portal_logpath="${default_save_path}"
 	lastcharetcaptiveportallogpath=${default_et_captive_portal_logpath: -1}
 	if [ "${lastcharetcaptiveportallogpath}" != "/" ]; then
 		et_captive_portal_logpath="${default_et_captive_portal_logpath}/"
@@ -6098,7 +6103,7 @@ function capture_handshake_evil_twin() {
 	kill "${processidcapture}" &> /dev/null
 	if [ "${handshake_captured}" = "y" ]; then
 
-		handshakepath=$(env | grep ^HOME | awk -F = '{print $2}')
+		handshakepath="${default_save_path}"
 		lastcharhandshakepath=${handshakepath: -1}
 		if [ "${lastcharhandshakepath}" != "/" ]; then
 			handshakepath="${handshakepath}/"
@@ -6364,7 +6369,7 @@ function attack_handshake_menu() {
 		kill "${processidcapture}" &> /dev/null
 		if [ "${handshake_captured}" = "y" ]; then
 
-			handshakepath=$(env | grep ^HOME | awk -F = '{print $2}')
+			handshakepath="${default_save_path}"
 			lastcharhandshakepath=${handshakepath: -1}
 			if [ "${lastcharhandshakepath}" != "/" ]; then
 				handshakepath="${handshakepath}/"
@@ -6991,6 +6996,13 @@ function et_prerequisites() {
 
 	return_to_et_main_menu=1
 	return_to_et_main_menu_from_beef=1
+
+	if [ "${is_docker}" -eq 1 ]; then
+		echo
+		language_strings "${language}" 420 "pink"
+		language_strings "${language}" 115 "read"
+	fi
+
 	echo
 	language_strings "${language}" 296 "yellow"
 	language_strings "${language}" 115 "read"
@@ -7288,6 +7300,7 @@ function credits_option() {
 	echo
 	language_strings "${language}" 85 "pink"
 	language_strings "${language}" 107 "pink"
+	language_strings "${language}" 421 "pink"
 	echo
 	language_strings "${language}" 115 "read"
 }
@@ -7535,7 +7548,7 @@ function iwconfig_fix() {
 
 	debug_print
 
-	iwversion=$(iwconfig --version | grep version | awk '{print $4}')
+	iwversion=$(iwconfig --version 2> /dev/null | grep version | awk '{print $4}')
 	iwcmdfix=""
 	if [ "${iwversion}" -lt 30 ]; then
 		iwcmdfix=" 2> /dev/null | grep Mode: "
@@ -7642,6 +7655,18 @@ function set_script_folder_and_name() {
 		fi
 		scriptfolder="${scriptfolder%/*}/"
 		scriptname="${0##*/}"
+	fi
+}
+
+#Set the default directory for saving files
+function set_default_save_path() {
+
+	debug_print
+
+	if [ "${is_docker}" -eq 1 ]; then
+		default_save_path="${docker_io_dir}"
+	else
+		default_save_path=$(env | grep ^HOME | awk -F = '{print $2}')
 	fi
 }
 
@@ -8039,7 +8064,11 @@ function general_checkings() {
 		non_linux_os_check
 		echo -e "${yellow_color}${distro}${normal_color}"
 	else
-		echo -e "${yellow_color}${distro} Linux${normal_color}"
+		if [ "${is_docker}" -eq 1 ]; then
+			echo -e "${yellow_color}${docker_based_distro} Linux ${pink_color}(Docker)${normal_color}"
+		else
+			echo -e "${yellow_color}${distro} Linux${normal_color}"
+		fi
 	fi
 
 	check_compatibility
@@ -8212,6 +8241,12 @@ function check_update_tools() {
 			language_strings "${language}" 225 "yellow"
 			language_strings "${language}" 115 "read"
 		fi
+	else
+		if [ "${is_docker}" -eq 1 ]; then
+			echo
+			language_strings "${language}" 422 "blue"
+			language_strings "${language}" 115 "read"
+		fi
 	fi
 }
 
@@ -8320,6 +8355,7 @@ function initialize_script_settings() {
 
 	debug_print
 
+	is_docker=0
 	exit_code=0
 	check_kill_needed=0
 	nm_processes_killed=0
@@ -8470,6 +8506,16 @@ function recalculate_windows_sizes() {
 	set_windows_sizes
 }
 
+#Detect if airgeddon is working inside a docker container
+function docker_detection() {
+
+	debug_print
+
+	if [ -f /.dockerenv ]; then
+		is_docker=1
+	fi
+}
+
 #Script starting point
 function welcome() {
 
@@ -8478,6 +8524,8 @@ function welcome() {
 	clear
 	current_menu="pre_main_menu"
 	initialize_script_settings
+	docker_detection
+	set_default_save_path
 
 	if [ ${auto_change_language} -eq 1 ]; then
 		autodetect_language
